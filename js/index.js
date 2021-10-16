@@ -15,6 +15,7 @@ drawModel()
 
 
 function initDom() {
+    let id = 0
     for(let i=0; i<8; i++) {
         let col = document.createElement('div')
         col.classList.add('col')
@@ -23,6 +24,8 @@ function initDom() {
             let jewelOuter = document.createElement('div')
             let jewelInner = document.createElement('div')
             jewelOuter.classList.add('jewel-outer')
+            jewelOuter.id = id
+            id++
             jewelInner.classList.add('jewel-inner')
             jewelOuter.appendChild(jewelInner)
             col.appendChild(jewelOuter)
@@ -33,14 +36,14 @@ function initDom() {
 }
 
 function setUpJewelListeners() {
-    let jewels = document.querySelectorAll('.jewel-inner')
+    let jewels = document.querySelectorAll('.jewel-outer')
     jewels.forEach(jewel => {
         jewel.addEventListener('click', handleJewelClicked)
     })
 }
 
-function handleJewelClicked(jewel) {
-    console.log('jewel')
+function handleJewelClicked() {
+    console.log('jewel', this.id)
 }
 
 function drawModel() {
@@ -96,7 +99,6 @@ function setColor(cur) {
     if(vertical.length == 2) {
         if(vertical[0].color == vertical[1].color) {
             exceptions.push(vertical[0].color)
-            console.log(vertical[0], exceptions)
         }
     }
     if(horizontal.length == 2) {
