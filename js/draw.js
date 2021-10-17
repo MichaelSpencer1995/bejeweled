@@ -4,7 +4,7 @@ function drawModel() {
         state.model.forEach(jewel => {
             if(jewel.x == i) {
                 jewels[jewel.y].classList.add(`jewel-${jewel.color}`)
-                // jewels[jew.y].innerHTML = jew.id
+                jewels[jewel.y].innerHTML = jewel.id
             }
         })
     }

@@ -34,9 +34,14 @@ function randomJewel(except) {
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
 
-function getJewelInModelById(id) {
+function getJewelInModelBy(type, data) {
     return (state.model.filter(domEl => {
-        return (domEl.id == id)
+        if(type == 'Id') {
+            return (domEl.id == data)
+        }
+        if(type == 'Coors') {
+            return (domEl.x == data[0] && domEl.y == data[1])
+        }
     }))[0]
 }
 

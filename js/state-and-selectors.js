@@ -12,5 +12,7 @@ let state = {
         id: null
     },
     swapBack: false,
-    endSwapping: false
+    endSwapping: false,
+    scoringPieces: []
+    // potentialScorers: []
 }

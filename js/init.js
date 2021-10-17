@@ -38,7 +38,8 @@ function initModel() {
                     y: j,
                     id: id,
                     isActive: false
-                })
+                }),
+                potentialScorer: false
             }
             state.model.push(jewel)
             id++
