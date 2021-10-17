@@ -11,6 +11,6 @@ let state = {
         isActive: false,
         id: null
     },
-    jewelActive: false,
-    jewelsSwapping: false
+    swapBack: false,
+    endSwapping: false
 }

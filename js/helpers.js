@@ -34,12 +34,12 @@ function randomJewel(except) {
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
 
-function findJewelInModelById(id) {
+function getJewelInModelById(id) {
     return (state.model.filter(domEl => {
         return (domEl.id == id)
     }))[0]
 }
 
-function findJewelInViewById(id) {
+function getJewelInViewById(id) {
     return document.getElementById(`${id}`)
 }
