@@ -1,6 +1,6 @@
 const startButton = document.getElementById('start')
 const gameBoard = document.getElementById('game-board')
-// startButton.addEventListener('click', startGame)
+
 let state = {
     model: [],
     move1: {
@@ -11,5 +11,6 @@ let state = {
         isActive: false,
         id: null
     },
-    jewelActive: false
+    jewelActive: false,
+    jewelsSwapping: false
 }

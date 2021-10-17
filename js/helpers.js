@@ -1,7 +1,3 @@
-function swapJewels() {
-
-}
-
 function setColor(cur) {
     let vertical = []
     let horizontal = []
@@ -42,4 +38,8 @@ function findJewelInModelById(id) {
     return (state.model.filter(domEl => {
         return (domEl.id == id)
     }))[0]
+}
+
+function findJewelInViewById(id) {
+    return document.getElementById(`${id}`)
 }

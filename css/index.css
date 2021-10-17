@@ -70,4 +70,18 @@
 
 .jewel-active {
     transform: scale(1.15);
+    border: #fffe00 2px solid;
+}
+
+.swap-left {
+    transform: translateX(-60px);
+}
+.swap-right {
+    transform: translateX(60px);
+}
+.swap-up {
+    transform: translateY(-60px);
+}
+.swap-down {
+    transform: translateY(60px);
 }

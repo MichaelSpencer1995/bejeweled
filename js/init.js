@@ -50,5 +50,6 @@ function setUpJewelListeners() {
     let jewels = document.querySelectorAll('.jewel-outer')
     jewels.forEach(jewel => {
         jewel.addEventListener('click', handleJewelClicked)
+        jewel.addEventListener('transitionend', handleAnimationEnded);
     })
 }
