@@ -37,7 +37,7 @@
 }
 
 .jewel-inner {
-    transition: all 1s ease;
+    transition: all 0.1s ease;
     height: 20px;
     width: 19px;
     box-sizing: border-box;
@@ -63,7 +63,8 @@
 }
 .jewel-4 {
     background: #0062f4;
-    background: #0066ff;
+    background: #06f;
+    background: #04f;
 }
 .jewel-5 {
     background: #323232;
@@ -71,6 +72,7 @@
 }
 .jewel-6 {
     background: #fff;
+    background: #ffffff9c;
 }
 
 .jewel-active {
