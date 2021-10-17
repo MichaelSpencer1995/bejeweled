@@ -37,7 +37,7 @@
 }
 
 .jewel-inner {
-    transition: all 0.1s ease;
+    transition: all 1s ease;
     height: 20px;
     width: 19px;
     box-sizing: border-box;
@@ -79,6 +79,14 @@
 .jewel-active {
     transform: scale(1.15);
     border: #fffe00 2px solid;
+}
+
+.jewel-poof {
+    border: gold 5px solid;
+}
+
+.transition-none {
+    transition: none;
 }
 
 .swap-left {

@@ -13,6 +13,7 @@ let state = {
     },
     swapBack: false,
     endSwapping: false,
+    animateScoring: false,
     scoringPieces: []
     // potentialScorers: []
 }
