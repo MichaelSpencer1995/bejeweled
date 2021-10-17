@@ -37,6 +37,7 @@
 }
 
 .jewel-inner {
+    transition: all 0.1s ease;
     height: 30px;
     width: 30px;
     box-sizing: border-box;
@@ -65,4 +66,8 @@
 }
 .jewel-6 {
     background: #fff;
+}
+
+.jewel-active {
+    transform: scale(1.15);
 }

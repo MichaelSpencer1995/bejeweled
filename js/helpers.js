@@ -1,3 +1,7 @@
+function swapJewels() {
+
+}
+
 function setColor(cur) {
     let vertical = []
     let horizontal = []
@@ -32,4 +36,10 @@ function setColor(cur) {
 function randomJewel(except) {
     let num = Math.floor(Math.random() * 7)
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
+}
+
+function findJewelInModelById(id) {
+    return (state.model.filter(domEl => {
+        return (domEl.id == id)
+    }))[0]
 }
