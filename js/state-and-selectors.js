@@ -1,7 +1,6 @@
 const startButton = document.getElementById('start')
 const gameBoard = document.getElementById('game-board')
-
-let state = {
+const state = {
     model: [],
     move1: {
         isActive: false,
