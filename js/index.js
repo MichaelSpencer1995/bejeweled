@@ -1,35 +1,83 @@
-function setColor(cur) {
-    let vertical = []
-    let horizontal = []
-    state.model.forEach(jewel => {
-        if(jewel.x == cur.x - 1 && jewel.y == cur.y) {
-            horizontal.push(jewel)
+initModel(runDebug)
+initDom()
+drawModel()
+
+function initDom() {
+    let id = 0
+    for(let i=0; i<8; i++) {
+        let col = document.createElement('div')
+        col.classList.add('col')
+        col.classList.add('col-' + i)
+        for(let j=0; j<8; j++) {
+            let jewelOuter = document.createElement('div')
+            let jewelInner = document.createElement('div')
+            jewelOuter.classList.add('jewel-outer')
+            jewelOuter.id = id
+            id++
+            jewelInner.classList.add('jewel-inner')
+            jewelOuter.appendChild(jewelInner)
+            col.appendChild(jewelOuter)
         }
-        if(jewel.x == cur.x - 2 && jewel.y == cur.y) {
-            horizontal.push(jewel)
-        }
-        if(jewel.x == cur.x && jewel.y == cur.y - 1) {
-            vertical.push(jewel)
-        }
-        if(jewel.x == cur.x && jewel.y == cur.y - 2) {
-            vertical.push(jewel)
-        }
-    })
-    let exceptions = []
-    if(vertical.length == 2) {
-        if(vertical[0].color == vertical[1].color) {
-            exceptions.push(vertical[0].color)  
-        }
+        gameBoard.appendChild(col)
     }
-    if(horizontal.length == 2) {
-        if(horizontal[0].color == horizontal[1].color) {
-            exceptions.push(horizontal[0].color)
-        }
-    }
-    return randomJewel(exceptions)
+    setUpJewelListeners()
 }
 
-function randomJewel(except) {
-    let num = Math.floor(Math.random() * 7)
-    return (num === except[0] || num === except[1]) ? randomJewel(except) : num
+
+
+function initModel(debug) {
+    let id = 0
+    for(let i=0; i<8; i++) {
+        for(let j=0; j<8; j++) {
+            let jewel = {
+                x: i,
+                y: j,
+                id: id,
+                color: setColor({
+                    x: i,
+                    y: j,
+                    id: id,
+                    isActive: false
+                }),
+                potentialScorer: false
+            }
+            state.model.push(jewel)
+            id++
+        }
+    }
+    if(debug) {
+        let colors = [0,1,2,3,4,5,6]
+        // for(let i=0; i<64; i++) {
+        //     if(i < 8) { state.model[i].color = colors[6] }
+        //     if(i >= 8 && i <16) { state.model[i].color = colors[0] }
+        //     if(i >= 16 && i <24) { state.model[i].color = colors[1] }
+        //     if(i >= 24 && i <32) { state.model[i].color = colors[2] }
+        //     if(i >= 32 && i <40) { state.model[i].color = colors[3] }
+        //     if(i >= 40 && i <48) { state.model[i].color = colors[4] }
+        //     if(i >= 48 && i <56) { state.model[i].color = colors[5] }
+        //     if(i >= 56) { state.model[i].color = colors[6] }
+        // }
+
+        if(settings.maxPoints) {
+            for(let i=0; i<64; i++) {
+                if(i % 3 == 0) { state.model[i].color = colors[0] }
+                if(i % 3 == 1) { state.model[i].color = colors[2] }
+                if(i % 3 == 2) { state.model[i].color = colors[4] }
+            }
+            for(let i=0; i<64; i++) {
+                if(i<=1||i>=8&&i<=10||i>=16&&i<=19||i>= 24&&i<=39||i>= 40&&i<=43||i>= 48&&i<=50||i>= 56&&i<=57){
+                    state.model[i].color = colors[6]
+                }
+                if(i==18||i==42) {state.model[i].color = colors[5]}
+            }
+        }
+    }
+}
+
+function setUpJewelListeners() {
+    let jewels = document.querySelectorAll('.jewel-outer')
+    jewels.forEach(jewel => {
+        jewel.addEventListener('click', handleJewelClicked)
+        jewel.addEventListener('transitionend', handleAnimationEnded);
+    })
 }

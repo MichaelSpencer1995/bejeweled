@@ -21,7 +21,6 @@ function randomJewel(except) {
     let num = Math.floor(Math.random() * 7)
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
-
 function getJewelInModelBy(type, data) {
     return (state.model.filter(domEl => {
         if(type == 'Id') {
