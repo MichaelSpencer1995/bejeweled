@@ -38,6 +38,7 @@
 
 .jewel-inner {
     transition: all 1s ease;
+    transition: all 0.4s ease;
     height: 20px;
     width: 19px;
     box-sizing: border-box;
@@ -70,6 +71,7 @@
 .jewel-5 {
     background: #323232;
     background: #000;
+    color: #fff;
 }
 .jewel-6 {
     background: #fff;
@@ -83,6 +85,11 @@
 
 .jewel-poof {
     border: gold 5px solid;
+    border: gold 5px solid;
+    /* display: none; */
+    transform: rotate(720deg) scale(2);
+    /* transition: all 0.4s ease; */
+    opacity: 0;
 }
 
 .transition-none {

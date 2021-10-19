@@ -1,4 +1,4 @@
-initModel()
+initModel(runDebug)
 initDom()
 drawModel()
 
@@ -25,7 +25,7 @@ function initDom() {
 
 
 
-function initModel() {
+function initModel(debug) {
     let id = 0
     for(let i=0; i<8; i++) {
         for(let j=0; j<8; j++) {
@@ -43,6 +43,33 @@ function initModel() {
             }
             state.model.push(jewel)
             id++
+        }
+    }
+    if(debug) {
+        let colors = [0,1,2,3,4,5,6]
+        // for(let i=0; i<64; i++) {
+        //     if(i < 8) { state.model[i].color = colors[6] }
+        //     if(i >= 8 && i <16) { state.model[i].color = colors[0] }
+        //     if(i >= 16 && i <24) { state.model[i].color = colors[1] }
+        //     if(i >= 24 && i <32) { state.model[i].color = colors[2] }
+        //     if(i >= 32 && i <40) { state.model[i].color = colors[3] }
+        //     if(i >= 40 && i <48) { state.model[i].color = colors[4] }
+        //     if(i >= 48 && i <56) { state.model[i].color = colors[5] }
+        //     if(i >= 56) { state.model[i].color = colors[6] }
+        // }
+
+        if(settings.maxPoints) {
+            for(let i=0; i<64; i++) {
+                if(i % 3 == 0) { state.model[i].color = colors[0] }
+                if(i % 3 == 1) { state.model[i].color = colors[2] }
+                if(i % 3 == 2) { state.model[i].color = colors[4] }
+            }
+            for(let i=0; i<64; i++) {
+                if(i<=1||i>=8&&i<=10||i>=16&&i<=19||i>= 24&&i<=39||i>= 40&&i<=43||i>= 48&&i<=50||i>= 56&&i<=57){
+                    state.model[i].color = colors[6]
+                }
+                if(i==18||i==42) {state.model[i].color = colors[5]}
+            }
         }
     }
 }

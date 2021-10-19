@@ -1,11 +1,20 @@
 function animateScoring() {
-    let winners = state.scoringPieces.forEach(id => {
-        document.querySelectorAll('.jewel-inner').forEach(jewel => {
-            jewel.classList.remove('swap-left', 'swap-right', 'swap-up', 'swap-down')
-            jewel.classList.add('transition-none')
-        })
-        drawModel()
-        getJewelInViewById(id).firstChild.classList.add('jewel-poof')
+    document.querySelectorAll('.jewel-inner').forEach(jewel => {
+        jewel.classList.add('transition-none')
+        jewel.classList.remove('swap-left', 'swap-right', 'swap-up', 'swap-down', 'jewel-active')
+    })
+    drawModel()
+    state.scoringPieces.forEach(id => {
+        setTimeout(() => {
+            const scorer = getJewelInViewById(id)
+            console.log(scorer.firstChild.classList)
+            scorer.firstChild.classList.remove('transition-none')
+            console.log(scorer.firstChild.classList)
+            // its like the swap classed are still on when this class is added
+            // so there should be away to do this without set timeout
+            // we need to learn why this is happening
+            scorer.firstChild.classList.add('jewel-poof')
+        }, 0.2)
     })
 }
 
