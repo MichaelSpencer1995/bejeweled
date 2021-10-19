@@ -15,5 +15,4 @@ let state = {
     endSwapping: false,
     animateScoring: false,
     scoringPieces: []
-    // potentialScorers: []
 }
