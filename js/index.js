@@ -47,17 +47,6 @@ function initModel(debug) {
     }
     if(debug) {
         let colors = [0,1,2,3,4,5,6]
-        // for(let i=0; i<64; i++) {
-        //     if(i < 8) { state.model[i].color = colors[6] }
-        //     if(i >= 8 && i <16) { state.model[i].color = colors[0] }
-        //     if(i >= 16 && i <24) { state.model[i].color = colors[1] }
-        //     if(i >= 24 && i <32) { state.model[i].color = colors[2] }
-        //     if(i >= 32 && i <40) { state.model[i].color = colors[3] }
-        //     if(i >= 40 && i <48) { state.model[i].color = colors[4] }
-        //     if(i >= 48 && i <56) { state.model[i].color = colors[5] }
-        //     if(i >= 56) { state.model[i].color = colors[6] }
-        // }
-
         if(settings.maxPoints) {
             for(let i=0; i<64; i++) {
                 if(i % 3 == 0) { state.model[i].color = colors[0] }
