@@ -7,9 +7,7 @@ function animateScoring() {
     state.scoringPieces.forEach(id => {
         setTimeout(() => {
             const scorer = getJewelInViewById(id)
-            console.log(scorer.firstChild.classList)
             scorer.firstChild.classList.remove('transition-none')
-            console.log(scorer.firstChild.classList)
             // its like the swap classed are still on when this class is added
             // so there should be away to do this without set timeout
             // we need to learn why this is happening

@@ -87,7 +87,7 @@
     border: gold 5px solid;
     border: gold 5px solid;
     /* display: none; */
-    transform: rotate(720deg) scale(2);
+    transform: rotate(-720deg) scale(2);
     /* transition: all 0.4s ease; */
     opacity: 0;
 }

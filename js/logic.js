@@ -1,3 +1,5 @@
+function scoreWinners() { console.log('score these', state.scoringPieces) }
+
 function handleJewelClicked() {
     if(!state.move1.isActive) {
         this.firstChild.classList.add('jewel-active')
@@ -35,8 +37,8 @@ function secondMoveAdjacent(jewel) {
 
 function swapJewels(dir) {
     if(moveValid()) {
-        console.log(state.move1, state.move2)
         animateSwap(dir)
+        scoreWinners()
         // genrate new model
             // swap pieces in model
             // find all deleteable pieces
