@@ -101,9 +101,7 @@ function check3InARow(jewel, dir) {
                     jewel.potentialScorer = true
                     adjacent.potentialScorer = true
                     check3InARow(adjacent, 'left')    
-                } else {return}
-            }
-        break
+                } else { return }} break
         case 'right':
             adjacent = getJewelInModelBy('Coors', [jewel.x +1, jewel.y])
             if(adjacent) {
@@ -111,9 +109,7 @@ function check3InARow(jewel, dir) {
                     jewel.potentialScorer = true
                     adjacent.potentialScorer = true
                     check3InARow(adjacent, 'right')    
-                } else {return}
-            }
-        break
+                } else { return }} break
         case 'above':
             adjacent = getJewelInModelBy('Coors', [jewel.x, jewel.y -1])
             if(adjacent) {
@@ -121,9 +117,7 @@ function check3InARow(jewel, dir) {
                     jewel.potentialScorer = true
                     adjacent.potentialScorer = true
                     check3InARow(adjacent, 'above')    
-                } else {return}
-            }
-        break
+                } else { return }} break
         case 'below':
             adjacent = getJewelInModelBy('Coors', [jewel.x, jewel.y +1])
             if(adjacent) {
@@ -131,9 +125,7 @@ function check3InARow(jewel, dir) {
                     jewel.potentialScorer = true
                     adjacent.potentialScorer = true
                     check3InARow(adjacent, 'below')    
-                } else {return}
-            }
-        break
+                } else { return }} break
     }
     let potentialScorers = state.model.filter(jewel => {
         return jewel.potentialScorer
