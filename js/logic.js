@@ -1,4 +1,54 @@
-function scoreWinners() { console.log('score these', state.scoringPieces) }
+// function scoreWinners() { console.log('score these', state.scoringPieces) }
+
+function shiftJewels(model) {
+    model.forEach(jewel => {
+        shiftJewel(jewel)
+    })
+    for(let i=0; i<8; i++) {
+        let col = model.filter(j => j.x == i).reverse()
+        let nullFound = false
+        col.forEach(j => {
+            if(j.color == null) {
+                nullFound = true
+                return
+            }
+            if(j.color && nullFound) {
+                // starting from bottom to top of each column.. if a empty spot is found AND the next jewel above it
+                // has a color... that means all the jewels have NOT made their way to the bottom of the game board
+                // so shiftJewels needs to run on all the jewels again until (when starting from the bottom up of
+                // each column) every jewel that is null (empty ie recently scored) has nothing but other empty's
+                // above it.. meaning there are no floating jewels
+                shiftJewels(model)
+            }
+        })
+    }
+}
+
+function shiftJewel(jewel) {
+    const jewelBelow = getJewelInModelBy('coors', [jewel.x, jewel.y + 1], true)
+    if(jewelBelow) {
+        if(jewelBelow.color == null) {
+            jewel.originalCoors = [jewel.x, jewel.y]
+            const c1 = jewel.color
+            const c2 = jewelBelow.color
+            jewel.color = c2
+            jewelBelow.color = c1
+        }
+    }
+}
+
+function createNextModel() {
+    state.nextModel = []
+    let curJew
+    state.model.forEach(jewel => {
+        curJew = Object.assign({}, jewel)
+        if(state.scoringPieces.indexOf(jewel.id) >= 0) {
+            curJew.color = null
+        }
+        state.nextModel.push(curJew)
+    })
+    shiftJewels(state.nextModel)
+}
 
 function handleJewelClicked() {
     if(!state.move1.isActive) {
@@ -26,8 +76,8 @@ function handleJewelClicked() {
 
 function secondMoveAdjacent(jewel) {
     let cnd = false
-    let j1 = getJewelInModelBy('Id', state.move1.id)
-    let j2 = getJewelInModelBy('Id', jewel.id)
+    let j1 = getJewelInModelBy('id', state.move1.id)
+    let j2 = getJewelInModelBy('id', jewel.id)
     if((j2.x -1 == j1.x) && (j2.y == j1.y)) { cnd = 'left' }
     if((j2.x +1 == j1.x) && (j2.y == j1.y)) { cnd = 'right' }
     if((j2.x == j1.x) && (j2.y -1 == j1.y)) { cnd = 'above' }
@@ -37,8 +87,10 @@ function secondMoveAdjacent(jewel) {
 
 function swapJewels(dir) {
     if(moveValid()) {
+        // scoreWinners()
+        createNextModel()
+        console.log(state.nextModel)
         animateSwap(dir)
-        scoreWinners()
         // genrate new model
             // swap pieces in model
             // find all deleteable pieces
@@ -69,8 +121,8 @@ function swapJewels(dir) {
 
 // maybe should be called scored() instead of moveValid()
 function moveValid() {
-    let j1 = getJewelInModelBy('Id', state.move1.id)
-    let j2 = getJewelInModelBy('Id', state.move2.id)
+    let j1 = getJewelInModelBy('id', state.move1.id)
+    let j2 = getJewelInModelBy('id', state.move2.id)
     let x1 = j1.color
     let x2 = j2.color
     j1.color = x2
@@ -95,7 +147,7 @@ function check3InARow(jewel, dir) {
     let adjacent
     switch(dir) {
         case 'left':
-            adjacent = getJewelInModelBy('Coors', [jewel.x -1, jewel.y])
+            adjacent = getJewelInModelBy('coors', [jewel.x -1, jewel.y])
             if(adjacent) {
                 if(jewel.color == adjacent.color) {
                     jewel.potentialScorer = true
@@ -103,7 +155,7 @@ function check3InARow(jewel, dir) {
                     check3InARow(adjacent, 'left')    
                 } else { return }} break
         case 'right':
-            adjacent = getJewelInModelBy('Coors', [jewel.x +1, jewel.y])
+            adjacent = getJewelInModelBy('coors', [jewel.x +1, jewel.y])
             if(adjacent) {
                 if(jewel.color == adjacent.color) {
                     jewel.potentialScorer = true
@@ -111,7 +163,7 @@ function check3InARow(jewel, dir) {
                     check3InARow(adjacent, 'right')    
                 } else { return }} break
         case 'above':
-            adjacent = getJewelInModelBy('Coors', [jewel.x, jewel.y -1])
+            adjacent = getJewelInModelBy('coors', [jewel.x, jewel.y -1])
             if(adjacent) {
                 if(jewel.color == adjacent.color) {
                     jewel.potentialScorer = true
@@ -119,7 +171,7 @@ function check3InARow(jewel, dir) {
                     check3InARow(adjacent, 'above')    
                 } else { return }} break
         case 'below':
-            adjacent = getJewelInModelBy('Coors', [jewel.x, jewel.y +1])
+            adjacent = getJewelInModelBy('coors', [jewel.x, jewel.y +1])
             if(adjacent) {
                 if(jewel.color == adjacent.color) {
                     jewel.potentialScorer = true

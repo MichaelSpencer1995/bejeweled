@@ -39,7 +39,9 @@ function initModel(debug) {
                     id: id,
                     isActive: false
                 }),
-                potentialScorer: false
+                potentialScorer: false,
+                open: false,
+                originalCoors: null
             }
             state.model.push(jewel)
             id++

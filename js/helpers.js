@@ -21,15 +21,17 @@ function randomJewel(except) {
     let num = Math.floor(Math.random() * 7)
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
-function getJewelInModelBy(type, data) {
-    return (state.model.filter(domEl => {
-        if(type == 'Id') {
+function getJewelInModelBy(type, data, useNextModel) {
+    // maybe this should not be a boolean but pass in model everytime?
+    const xs = useNextModel ? state.nextModel : state.model
+    return xs.filter(domEl => {
+        if(type == 'id') {
             return (domEl.id == data)
         }
-        if(type == 'Coors') {
+        if(type == 'coors') {
             return (domEl.x == data[0] && domEl.y == data[1])
         }
-    }))[0]
+    })[0]
 }
 
 function getJewelInViewById(id) {

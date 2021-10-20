@@ -1,4 +1,4 @@
-function animateScoring() {
+function animatePoof() {
     document.querySelectorAll('.jewel-inner').forEach(jewel => {
         jewel.classList.add('transition-none')
         jewel.classList.remove('swap-left', 'swap-right', 'swap-up', 'swap-down', 'jewel-active')
@@ -12,6 +12,7 @@ function animateScoring() {
             // so there should be away to do this without set timeout
             // we need to learn why this is happening
             scorer.firstChild.classList.add('jewel-poof')
+            state.jewelsPoofing = true
         }, 0.2)
     })
 }
@@ -55,8 +56,16 @@ function animateSwapBack() {
 
 function handleAnimationEnded(event) {
     if (event.propertyName == 'transform') {
+        if(state.jewelsPoofing) {
+            state.jewelsPoofing = false
+            document.querySelectorAll('.jewel-poof').forEach(el => {
+                el.classList.remove('jewel-poof')
+                el.classList.add('transition-none')
+            })
+            drawModel(true)
+        }
         if(state.animateScoring) {
-            animateScoring()
+            animatePoof()
             state.animateScoring = false
         }
         if(state.endSwapping && event.srcElement.parentElement.id == state.move2.id) {
