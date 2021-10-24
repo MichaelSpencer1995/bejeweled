@@ -110,22 +110,18 @@ i {
     color: #323232;
     color: #000;
     color: #c100bc;
+    font-size: 44px;
 }
 .jewel-6 {
     color: #fff;
-    font-size: 41px;
-    /* background: #ffffff9c; */
+    font-size: 47px;
 }
 
 .jewel-active {
     transform: scale(1.15);
-    /* border: #fffe00 2px solid; */
 }
 
 .jewel-poof {
-    /* border: gold 5px solid; */
-    /* border: gold 5px solid; */
-    /* display: none; */
     transform: rotate(720deg) scale(2);
     transition: all 0.5s ease;
     opacity: 0;
