@@ -12,7 +12,7 @@
     width: 480px;
     box-sizing: border-box;
     display: flex;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #start {
@@ -41,8 +41,8 @@
 .jewel-inner {
     /* transition: all 1s ease; */
     transition: all 0.3s ease;
-    height: 20px;
-    width: 19px;
+    height: 30px;
+    width: 30px;
     box-sizing: border-box;
     border: #ececec78 2px solid;
     position: relative;

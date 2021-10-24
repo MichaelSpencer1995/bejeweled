@@ -100,7 +100,7 @@ function handleAnimationEnded(event) {
                             el.style.bottom = num + 'px'
                         }
                     })
-                }, 50)
+                }, 10)
             }, 0.2)
         }
         if(state.animateScoring) {

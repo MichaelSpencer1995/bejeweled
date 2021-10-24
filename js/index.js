@@ -64,6 +64,15 @@ function initModel(debug) {
                 if(i==18||i==42) {state.model[i].color = colors[5]}
             }
         }
+        if(settings.horAndVer) {
+            let d = 0
+            state.model[34].color = colors[colors[4]]
+            state.model[35].color = colors[colors[4]]
+            state.model[36].color = colors[colors[1]]
+            state.model[37].color = colors[colors[4]]
+            state.model[20].color = colors[colors[4]]
+            state.model[28].color = colors[colors[4]]
+        }
     }
 }
 

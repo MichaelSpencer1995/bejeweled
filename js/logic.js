@@ -108,7 +108,7 @@ function fillNoobs() {
             if(jewel.x == i && jewel.color == null) {
                 noobs++
                 jewel.originalCoors = [jewel.x, -noobs]
-                jewel.color = 0
+                jewel.color = setColor()
                 col.push(jewel)
                 coors.push(jewel.originalCoors[1])
             }
