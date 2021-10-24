@@ -20,7 +20,8 @@ function setColor(cur) {
 }
 
 function randomJewel(except) {
-    let num = Math.floor(Math.random() * 7)
+    let colors = runDebug ? settings.maxColors : 7
+    let num = Math.floor(Math.random() * colors)
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
 function getJewelInModelBy(type, data, useNextModel) {
@@ -84,5 +85,7 @@ function updateModels() {
     drawModel()
     if(moveValid()) {
         runFullScore()
+    } else {
+        state.gameLocked = false
     }
 }

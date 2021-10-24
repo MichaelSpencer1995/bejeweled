@@ -1,4 +1,4 @@
-document.body.style.zoom = "80%"
+// document.body.style.zoom = "80%"
 
 initModel(runDebug)
 initDom()

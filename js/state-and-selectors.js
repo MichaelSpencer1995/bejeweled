@@ -15,5 +15,6 @@ const state = {
     endSwapping: false,
     animateScoring: false,
     jewelsDonePoofing: false,
-    scoringPieces: []
+    scoringPieces: [],
+    gameLocked: false
 }

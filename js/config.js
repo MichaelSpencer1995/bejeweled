@@ -1,6 +1,7 @@
 const runDebug = true
 const settings = {
-    showIds: true,
+    maxColors: 3,
+    // showIds: true,
     // maxPoints: true,
     horAndVer: true
 }

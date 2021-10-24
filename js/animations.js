@@ -90,7 +90,7 @@ function handleAnimationEnded(event) {
                         els[i].style.bottom = num + 'px'
                     }
                 }
-            }, 20)
+            }, 10)
             function stopAnimation() {
                 clearInterval(animationClock)
             }

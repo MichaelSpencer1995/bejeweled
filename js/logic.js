@@ -56,12 +56,10 @@ function createNextModel() {
         }
         state.nextModel.push(curJew)
     })
-    
-    // console.log(state)
-    
 }
 
 function handleJewelClicked() {
+    if(state.gameLocked) { return }
     if(!state.move1.isActive) {
         this.firstChild.classList.add('jewel-active')
         state.move1.isActive = true
@@ -122,6 +120,7 @@ function fillNoobs() {
 }
 
 function runFullScore(dir) {
+    state.gameLocked = true
     createNextModel()
     shiftJewels(state.nextModel)
     fillNoobs()
