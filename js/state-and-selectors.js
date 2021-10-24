@@ -20,5 +20,6 @@ const state = {
 }
 
 const sounds = {
-    swap: new Audio('./sfx/swap1.mp3')
+    swap: new Audio('./sfx/swap1.mp3'),
+    score: new Audio('./sfx/score1.mp3')
 }

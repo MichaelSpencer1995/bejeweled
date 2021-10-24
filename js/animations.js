@@ -1,4 +1,5 @@
 function animatePoof() {
+    sounds.score.play()
     document.querySelectorAll('.jewel-inner').forEach(jewel => {
         jewel.classList.add('transition-none')
         jewel.classList.remove('swap-left', 'swap-right', 'swap-up', 'swap-down', 'jewel-active')

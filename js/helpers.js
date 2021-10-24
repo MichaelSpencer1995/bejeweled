@@ -20,7 +20,7 @@ function setColor(cur) {
 }
 
 function randomJewel(except) {
-    let colors = dev ? settings.maxColors : 7
+    let colors = dev && settings.maxColors ? settings.maxColors : 7
     let num = Math.floor(Math.random() * colors)
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
