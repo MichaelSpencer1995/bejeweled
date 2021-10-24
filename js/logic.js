@@ -164,11 +164,12 @@ function swapJewels(dir) {
 
 // maybe should be called scored() instead of moveValid()
 function moveValid() {
+    let j1, j2, x1, x2
     if(state.move1.id && state.move2.id) {
-        let j1 = getJewelInModelBy('id', state.move1.id)
-        let j2 = getJewelInModelBy('id', state.move2.id)
-        let x1 = j1.color
-        let x2 = j2.color
+        j1 = getJewelInModelBy('id', state.move1.id)
+        j2 = getJewelInModelBy('id', state.move2.id)
+        x1 = j1.color
+        x2 = j2.color
         j1.color = x2
         j2.color = x1
     }

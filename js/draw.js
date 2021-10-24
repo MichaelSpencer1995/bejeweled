@@ -9,7 +9,7 @@ function drawModel(useNextModel) {
             if(jewel.x == i) {
                 jewels[jewel.y].classList.remove('jewel-0', 'jewel-1', 'jewel-2', 'jewel-3', 'jewel-4', 'jewel-5', 'jewel-6')
                 jewels[jewel.y].classList.add(`jewel-${jewel.color}`)
-                if(runDebug && settings.showIds) {
+                if(dev && settings.showIds) {
                     jewels[jewel.y].innerHTML = jewel.id
                 }
             }

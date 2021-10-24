@@ -1,6 +1,6 @@
 // document.body.style.zoom = "80%"
 
-initModel(runDebug)
+initModel(dev)
 initDom()
 drawModel()
 
