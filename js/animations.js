@@ -1,5 +1,5 @@
 function animatePoof() {
-    sounds.score.play()
+    if(!state.mute) { sounds.score.play() }
     document.querySelectorAll('.jewel-inner').forEach(jewel => {
         jewel.classList.add('transition-none')
         jewel.classList.remove('swap-left', 'swap-right', 'swap-up', 'swap-down', 'jewel-active')
@@ -23,7 +23,8 @@ function animateSwap(dir, swapBack) {
         animatePoof()
         return
     }
-    sounds.swap.play()
+    if(!state.mute) { sounds.swap.play() }
+
     let j1 = getJewelInViewById(state.move1.id).firstChild
     let j2 = getJewelInViewById(state.move2.id).firstChild
 
@@ -52,6 +53,7 @@ function animateSwap(dir, swapBack) {
 
 function animateSwapBack() {
     sounds.swap.play()
+    if(!state.mute) { sounds.swap.play() }
     state.swapBack = false
     state.endSwapping = true
     let j1 = getJewelInViewById(state.move1.id).firstChild
@@ -64,6 +66,7 @@ function handleAnimationEnded(event) {
     if(event.propertyName == 'transform') {
         // make these make more sense and call function with same name
         if(state.jewelsDonePoofing) {
+            if(!state.mute) { sounds.swoop.play() }
             state.jewelsDonePoofing = false
             document.querySelectorAll('.jewel-poof').forEach(el => {
                 el.classList.remove('jewel-poof')
@@ -93,7 +96,7 @@ function handleAnimationEnded(event) {
                         els[i].style.bottom = num + 'px'
                     }
                 }
-            }, 10)
+            }, 7)
             function stopAnimation() {
                 clearInterval(animationClock)
             }

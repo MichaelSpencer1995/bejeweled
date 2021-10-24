@@ -23,6 +23,7 @@ function initDom() {
         gameBoard.appendChild(col)
     }
     setUpJewelListeners()
+    setupButtons()
 }
 
 
@@ -88,5 +89,18 @@ function setUpJewelListeners() {
     jewels.forEach(jewel => {
         jewel.addEventListener('click', handleJewelClicked)
         jewel.addEventListener('transitionend', handleAnimationEnded);
+    })
+}
+
+function setupButtons() {
+    muteButton.addEventListener('click', () => {
+        state.mute = !state.mute
+        console.warn(state.mute)
+        if(state.mute) {
+            document.getElementById('mute').classList.add('toggle-mute')
+        } else {
+            document.getElementById('mute').classList.remove('toggle-mute')
+
+        }
     })
 }

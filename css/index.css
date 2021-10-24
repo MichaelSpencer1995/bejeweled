@@ -1,9 +1,9 @@
 .container {
-    display: flex;
+    /* display: flex; */
+    width: 480px;
 }
 
 #game-board {
-    margin-top: 200px;
     background-position:0 0, 10px 0, 10px -10px, 0px 10px;
     background-image: linear-gradient(45deg, #bbada0 25%, transparent 25%), linear-gradient(-45deg, #bbada0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #bbada0 75%), linear-gradient(-45deg, #cdc1b4 75%, #bbada0 75%);
     background: #4a4a4a;
@@ -16,11 +16,24 @@
     overflow: hidden;
 }
 
+.toggle-mute {
+    color: red !important;
+}
+
 #start {
     color: #222222;
     height: 50px;
     width: 120px;
     margin: 12px 0 0 20px;
+    display: none;
+}
+
+#mute {
+    background: black;
+    color: white;
+    padding: 7px 10px;
+    border: none;
+    font-size: 20px;
 }
 
 .col {

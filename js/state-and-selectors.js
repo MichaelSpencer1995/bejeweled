@@ -1,4 +1,5 @@
 const startButton = document.getElementById('start')
+const muteButton = document.getElementById('mute')
 const gameBoard = document.getElementById('game-board')
 const state = {
     model: [],
@@ -16,10 +17,12 @@ const state = {
     animateScoring: false,
     jewelsDonePoofing: false,
     scoringPieces: [],
-    gameLocked: false
+    gameLocked: false,
+    mute: false
 }
 
 const sounds = {
     swap: new Audio('./sfx/swap1.mp3'),
+    swoop: new Audio('./sfx/swoop2.mp3'),
     score: new Audio('./sfx/score1.mp3')
 }
