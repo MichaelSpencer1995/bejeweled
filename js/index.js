@@ -13,10 +13,12 @@ function initDom() {
         for(let j=0; j<8; j++) {
             let jewelOuter = document.createElement('div')
             let jewelInner = document.createElement('div')
+            let icon = document.createElement('i')
             jewelOuter.classList.add('jewel-outer')
             jewelOuter.id = id
             id++
             jewelInner.classList.add('jewel-inner')
+            jewelInner.appendChild(icon)
             jewelOuter.appendChild(jewelInner)
             col.appendChild(jewelOuter)
         }
