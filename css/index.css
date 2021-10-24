@@ -1,12 +1,17 @@
+body {
+    background: black;
+}
+
 .container {
     /* display: flex; */
     width: 480px;
+    margin: 0 auto;
 }
 
 #game-board {
     background-position:0 0, 10px 0, 10px -10px, 0px 10px;
-    background-image: linear-gradient(45deg, #bbada0 25%, transparent 25%), linear-gradient(-45deg, #bbada0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #bbada0 75%), linear-gradient(-45deg, #cdc1b4 75%, #bbada0 75%);
-    background: #4a4a4a;
+    /* background-image: linear-gradient(45deg, #bbada0 25%, transparent 25%), linear-gradient(-45deg, #bbada0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #bbada0 75%), linear-gradient(-45deg, #cdc1b4 75%, #bbada0 75%); */
+    /* background: #4a4a4a; */
     background-size: 120px 120px;
     background-position: 0 0, 0 60px, 60px -60px, -60px 0px;
     height: 480px;
@@ -88,6 +93,7 @@
 .jewel-5 {
     background: #323232;
     background: #000;
+    background: #c100bc;
     color: #fff;
 }
 .jewel-6 {
