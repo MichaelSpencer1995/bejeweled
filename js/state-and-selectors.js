@@ -14,5 +14,7 @@ const state = {
     swapBack: false,
     endSwapping: false,
     animateScoring: false,
+    jewelsDonePoofing: false,
+    oneTime: false,
     scoringPieces: []
 }

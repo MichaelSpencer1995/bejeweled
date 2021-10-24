@@ -12,7 +12,7 @@ function animatePoof() {
             // so there should be away to do this without set timeout
             // we need to learn why this is happening
             scorer.firstChild.classList.add('jewel-poof')
-            state.jewelsPoofing = true
+            state.jewelsDonePoofing = true
         }, 0.2)
     })
 }
@@ -37,11 +37,10 @@ function animateSwap(dir, swapBack) {
         j2.classList.add('swap-down')
         j1.classList.add('swap-up')
     }
-    if(state.scoringPieces.length > 0) {
-        state.animateScoring = true
-    }
     if(swapBack) {
         state.swapBack = true
+    } else {
+        state.animateScoring = true
     }
 }
 
@@ -55,14 +54,43 @@ function animateSwapBack() {
 }
 
 function handleAnimationEnded(event) {
-    if (event.propertyName == 'transform') {
-        if(state.jewelsPoofing) {
-            state.jewelsPoofing = false
+    if(event.propertyName == 'bottom' && state.oneTime) {
+        console.log('once')
+        state.oneTime = false
+        document.querySelectorAll('.jewel-inner').forEach(jewel => {
+            // jewel.classList.remove('shifted')
+            // jewel.removeAttribute('style')
+        })
+        state.model = state.nextModel
+        state.nextModel = []
+        state.move1.isActive = false
+        state.move1.id = null
+        state.move2.isActive = false
+        state.move2.id = null
+        state.swapBack = false
+        state.endSwapping = false
+        state.animateScoring = false
+        state.scoringPieces = []
+        state.model.forEach(jewel => {
+            jewel.originalCoors = null
+        })
+    }
+    if(event.propertyName == 'transform') {
+        if(state.jewelsDonePoofing) {
+            state.jewelsDonePoofing = false
             document.querySelectorAll('.jewel-poof').forEach(el => {
                 el.classList.remove('jewel-poof')
                 el.classList.add('transition-none')
             })
+
             drawModel(true)
+            state.oneTime = true
+            setTimeout(() => {
+                document.querySelectorAll('.shifted').forEach(el => {
+                    el.classList.remove('transition-none')
+                    el.style.bottom = '0px'
+                })
+            }, 0.2)
         }
         if(state.animateScoring) {
             animatePoof()

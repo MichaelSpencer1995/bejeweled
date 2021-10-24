@@ -10,7 +10,7 @@ function shiftJewels(model) {
         col.forEach(j => {
             if(j.color == null) {
                 nullFound = true
-                return
+                // return
             }
             if(j.color && nullFound) {
                 // starting from bottom to top of each column.. if a empty spot is found AND the next jewel above it
@@ -28,7 +28,9 @@ function shiftJewel(jewel) {
     const jewelBelow = getJewelInModelBy('coors', [jewel.x, jewel.y + 1], true)
     if(jewelBelow) {
         if(jewelBelow.color == null) {
-            jewel.originalCoors = [jewel.x, jewel.y]
+            if(!jewel.originalCoors) {
+                jewelBelow.originalCoors = [jewel.x, jewel.y]
+            }
             const c1 = jewel.color
             const c2 = jewelBelow.color
             jewel.color = c2
@@ -47,7 +49,9 @@ function createNextModel() {
         }
         state.nextModel.push(curJew)
     })
-    shiftJewels(state.nextModel)
+    
+    // console.log(state)
+    
 }
 
 function handleJewelClicked() {
@@ -59,6 +63,7 @@ function handleJewelClicked() {
     }
     if(!state.move2.isActive) {
         let adjacentJewel = secondMoveAdjacent(this)
+        console.log(adjacentJewel)
         if(adjacentJewel) {
             this.firstChild.classList.add('jewel-active')
             state.move2.isActive = true
@@ -76,8 +81,10 @@ function handleJewelClicked() {
 
 function secondMoveAdjacent(jewel) {
     let cnd = false
+    console.log(state.move1, state.move2)
     let j1 = getJewelInModelBy('id', state.move1.id)
     let j2 = getJewelInModelBy('id', jewel.id)
+    console.log(j1, j2, state)
     if((j2.x -1 == j1.x) && (j2.y == j1.y)) { cnd = 'left' }
     if((j2.x +1 == j1.x) && (j2.y == j1.y)) { cnd = 'right' }
     if((j2.x == j1.x) && (j2.y -1 == j1.y)) { cnd = 'above' }
@@ -85,12 +92,38 @@ function secondMoveAdjacent(jewel) {
     return cnd
 }
 
+function fillNoobs() {
+    // state.nextModel.forEach(jewel => {
+    //     if(jewel.color == null) {
+    //         jewel.color = setColor()
+    //         jewel.color = 0
+    //         // this is where the new jewles get set
+    //         jewel.originalCoors = [jewel.x, jewel.y]
+    //     }
+    // })
+    for(let i=0; i<8; i++) {
+        // same here going through each instead of just 8
+        let noobs = 0
+        state.nextModel.forEach(jewel => {
+            if(jewel.x == i && jewel.color == null) {
+                noobs++
+                jewel.originalCoors = [jewel.x, -noobs]
+                jewel.color = 0
+            }
+        })   
+    }
+}
+
 function swapJewels(dir) {
     if(moveValid()) {
         // scoreWinners()
         createNextModel()
-        console.log(state.nextModel)
+        console.log(state)
+        shiftJewels(state.nextModel)
+        fillNoobs()
+        // drawModel(true)
         animateSwap(dir)
+        
         // genrate new model
             // swap pieces in model
             // find all deleteable pieces

@@ -11,7 +11,7 @@
     width: 480px;
     box-sizing: border-box;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #start {
@@ -38,8 +38,8 @@
 }
 
 .jewel-inner {
-    transition: all 1s ease;
-    transition: all 0.4s ease;
+    /* transition: all 1s ease; */
+    transition: all 0.3s ease;
     height: 20px;
     width: 19px;
     box-sizing: border-box;
@@ -88,8 +88,8 @@
     border: gold 5px solid;
     border: gold 5px solid;
     /* display: none; */
-    transform: rotate(-720deg) scale(2);
-    /* transition: all 0.4s ease; */
+    transform: rotate(720deg) scale(2);
+    transition: all 0.5s ease;
     opacity: 0;
 }
 
@@ -108,4 +108,9 @@
 }
 .swap-down {
     transform: translateY(60px);
+}
+
+.shifted {
+    /* background: linear-gradient(rgba(0rgba(255, 255, 255, 0.306) 0, 0.449), #fff);
+    background: violet; */
 }
