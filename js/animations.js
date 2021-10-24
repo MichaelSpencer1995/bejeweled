@@ -22,6 +22,7 @@ function animateSwap(dir, swapBack) {
         animatePoof()
         return
     }
+    sounds.swap.play()
     let j1 = getJewelInViewById(state.move1.id).firstChild
     let j2 = getJewelInViewById(state.move2.id).firstChild
 
@@ -49,6 +50,7 @@ function animateSwap(dir, swapBack) {
 }
 
 function animateSwapBack() {
+    sounds.swap.play()
     state.swapBack = false
     state.endSwapping = true
     let j1 = getJewelInViewById(state.move1.id).firstChild

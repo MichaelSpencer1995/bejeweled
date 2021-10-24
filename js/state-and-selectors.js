@@ -18,3 +18,7 @@ const state = {
     scoringPieces: [],
     gameLocked: false
 }
+
+const sounds = {
+    swap: new Audio('./sfx/swap1.mp3')
+}
