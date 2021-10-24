@@ -2,7 +2,8 @@
     display: flex;
 }
 
-#game-board { 
+#game-board {
+    margin-top: 200px;
     background-position:0 0, 10px 0, 10px -10px, 0px 10px;
     background-image: linear-gradient(45deg, #bbada0 25%, transparent 25%), linear-gradient(-45deg, #bbada0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #bbada0 75%), linear-gradient(-45deg, #cdc1b4 75%, #bbada0 75%);
     background-size: 120px 120px;

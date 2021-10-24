@@ -93,24 +93,24 @@ function secondMoveAdjacent(jewel) {
 }
 
 function fillNoobs() {
-    // state.nextModel.forEach(jewel => {
-    //     if(jewel.color == null) {
-    //         jewel.color = setColor()
-    //         jewel.color = 0
-    //         // this is where the new jewles get set
-    //         jewel.originalCoors = [jewel.x, jewel.y]
-    //     }
-    // })
     for(let i=0; i<8; i++) {
         // same here going through each instead of just 8
         let noobs = 0
+        let col = []
+        let coors = []
         state.nextModel.forEach(jewel => {
             if(jewel.x == i && jewel.color == null) {
                 noobs++
                 jewel.originalCoors = [jewel.x, -noobs]
                 jewel.color = 0
+                col.push(jewel)
+                coors.push(jewel.originalCoors[1])
             }
-        })   
+        })
+        coors.reverse()
+        coors.forEach((coor, i) => {
+            col[i].originalCoors[1] = coor
+        })
     }
 }
 

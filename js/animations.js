@@ -86,10 +86,21 @@ function handleAnimationEnded(event) {
             drawModel(true)
             state.oneTime = true
             setTimeout(() => {
-                document.querySelectorAll('.shifted').forEach(el => {
-                    el.classList.remove('transition-none')
-                    el.style.bottom = '0px'
-                })
+                // apply gravity
+                const els = document.querySelectorAll('.shifted')
+                
+                setInterval(() => {
+                    els.forEach(el => {
+                        if(el.style.bottom == 
+                            '0px') {
+                            return
+                        } else {
+                            let num = parseInt(el.style.bottom)
+                            num -= 5
+                            el.style.bottom = num + 'px'
+                        }
+                    })
+                }, 10)
             }, 0.2)
         }
         if(state.animateScoring) {
