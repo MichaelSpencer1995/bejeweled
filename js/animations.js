@@ -85,23 +85,32 @@ function handleAnimationEnded(event) {
 
             drawModel(true)
             state.oneTime = true
-            setTimeout(() => {
-                // apply gravity
-                const els = document.querySelectorAll('.shifted')
-                
-                setInterval(() => {
-                    els.forEach(el => {
-                        if(el.style.bottom == 
-                            '0px') {
-                            return
-                        } else {
-                            let num = parseInt(el.style.bottom)
-                            num -= 5
-                            el.style.bottom = num + 'px'
+            const els = document.querySelectorAll('.shifted')
+            const animationClock = setInterval(() => {
+                console.log('gravity interval frame')
+                els.forEach(el => {
+                    if(el.style.bottom == '0px') {
+                        let finished = true
+                        els.forEach(el => {
+                            if(el.style.bottom != '0px') {
+                                finished = false
+                            }
+                        })
+                        if(finished) {
+                            stopAnimation()
                         }
-                    })
-                }, 10)
-            }, 0.2)
+                        return
+                    } else {
+                        let num = parseInt(el.style.bottom)
+                        num -= 5
+                        el.style.bottom = num + 'px'
+                    }
+                })
+                
+            }, 100)
+            function stopAnimation() {
+                clearInterval(animationClock)
+            }
         }
         if(state.animateScoring) {
             animatePoof()

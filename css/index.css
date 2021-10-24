@@ -6,6 +6,7 @@
     margin-top: 200px;
     background-position:0 0, 10px 0, 10px -10px, 0px 10px;
     background-image: linear-gradient(45deg, #bbada0 25%, transparent 25%), linear-gradient(-45deg, #bbada0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #bbada0 75%), linear-gradient(-45deg, #cdc1b4 75%, #bbada0 75%);
+    background: #4a4a4a;
     background-size: 120px 120px;
     background-position: 0 0, 0 60px, 60px -60px, -60px 0px;
     height: 480px;
@@ -41,10 +42,11 @@
 .jewel-inner {
     /* transition: all 1s ease; */
     transition: all 0.3s ease;
-    height: 30px;
-    width: 30px;
+    height: 38px;
+    width: 38px;
+    border-radius: 12px;
     box-sizing: border-box;
-    border: #ececec78 2px solid;
+    /* border: #ececec78 2px solid; */
     position: relative;
     box-shadow: inset 0 0 10px #0000002b;
 }
