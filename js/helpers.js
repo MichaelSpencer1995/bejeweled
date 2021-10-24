@@ -57,5 +57,25 @@ function modelsEqual() {
 }
 
 function updateModels() {
-    console.log(state)
+    let nextModel = []
+    state.nextModel.forEach(jewel => {
+        curJew = Object.assign({}, jewel)
+        nextModel.push(curJew)
+    })
+    state.model = nextModel
+    state.nextModel = []
+    state.move1.isActive = false
+    state.move1.id = null
+    state.move2.isActive = false
+    state.move2.id = null
+    state.scoringPieces = []
+    const els = document.querySelectorAll('.jewel-inner')
+    els.forEach(el => {
+        el.classList.remove('transition-none', 'shifted')
+        el.style = ''
+    })
+    state.model.forEach(jewel => {
+        jewel.originalCoors = null
+    })
+    drawModel()
 }

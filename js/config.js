@@ -1,6 +1,6 @@
 const runDebug = true
 const settings = {
-    // showIds: true,
+    showIds: true,
     // maxPoints: true,
     horAndVer: true
 }

@@ -54,23 +54,8 @@ function animateSwapBack() {
 }
 
 function handleAnimationEnded(event) {
-    if(event.propertyName == 'bottom' && state.gravityApplied) {
-        console.log('gravity applied')
-        // state.model = state.nextModel
-        // state.nextModel = []
-        // state.move1.isActive = false
-        // state.move1.id = null
-        // state.move2.isActive = false
-        // state.move2.id = null
-        // state.swapBack = false
-        // state.endSwapping = false
-        // state.animateScoring = false
-        // state.scoringPieces = []
-        // state.model.forEach(jewel => {
-        //     jewel.originalCoors = null
-        // })
-    }
     if(event.propertyName == 'transform') {
+        // make these make more sense and call function with same name
         if(state.jewelsDonePoofing) {
             state.jewelsDonePoofing = false
             document.querySelectorAll('.jewel-poof').forEach(el => {

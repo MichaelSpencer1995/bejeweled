@@ -1,6 +1,7 @@
 // function scoreWinners() { console.log('score these', state.scoringPieces) }
 
 function shiftJewels(model) {
+    console.log('shift jewels')
     model.forEach(jewel => {
         shiftJewel(jewel)
     })
