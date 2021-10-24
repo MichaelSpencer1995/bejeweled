@@ -121,15 +121,19 @@ function fillNoobs() {
     }
 }
 
+function runFullScore(dir) {
+    createNextModel()
+    shiftJewels(state.nextModel)
+    fillNoobs()
+    animateSwap(dir)
+}
+
 function swapJewels(dir) {
     if(moveValid()) {
         // scoreWinners()
-        createNextModel()
-        console.log(state)
-        shiftJewels(state.nextModel)
-        fillNoobs()
-        // drawModel(true)
-        animateSwap(dir)
+        // createNextModel()
+        runFullScore(dir)
+        // animateSwap(dir)
         
         // genrate new model
             // swap pieces in model
@@ -161,12 +165,15 @@ function swapJewels(dir) {
 
 // maybe should be called scored() instead of moveValid()
 function moveValid() {
-    let j1 = getJewelInModelBy('id', state.move1.id)
-    let j2 = getJewelInModelBy('id', state.move2.id)
-    let x1 = j1.color
-    let x2 = j2.color
-    j1.color = x2
-    j2.color = x1
+    if(state.move1.id && state.move2.id) {
+        let j1 = getJewelInModelBy('id', state.move1.id)
+        let j2 = getJewelInModelBy('id', state.move2.id)
+        let x1 = j1.color
+        let x2 = j2.color
+        j1.color = x2
+        j2.color = x1
+    }
+        
     state.model.forEach(jewel => {
         check3InARow(jewel, 'left')
         check3InARow(jewel, 'right')
@@ -178,8 +185,10 @@ function moveValid() {
     })
     const cnd = (state.scoringPieces.length >= 3) ? true : false
     if(cnd) { return cnd }
-    j1.color = x1
-    j2.color = x2
+    if(state.move1.id && state.move2.id) {
+        j1.color = x1
+        j2.color = x2
+    }
     return cnd
 }
 

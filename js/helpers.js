@@ -69,6 +69,10 @@ function updateModels() {
     state.move2.isActive = false
     state.move2.id = null
     state.scoringPieces = []
+    state.jewelsDonePoofing = false
+    state.swapBack = false
+    state.endSwapping = false
+    state.animateScoring = false
     const els = document.querySelectorAll('.jewel-inner')
     els.forEach(el => {
         el.classList.remove('transition-none', 'shifted')
@@ -78,4 +82,7 @@ function updateModels() {
         jewel.originalCoors = null
     })
     drawModel()
+    if(moveValid()) {
+        runFullScore()
+    }
 }

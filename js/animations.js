@@ -18,6 +18,10 @@ function animatePoof() {
 }
 
 function animateSwap(dir, swapBack) {
+    if(!dir) {
+        animatePoof()
+        return
+    }
     let j1 = getJewelInViewById(state.move1.id).firstChild
     let j2 = getJewelInViewById(state.move2.id).firstChild
 
