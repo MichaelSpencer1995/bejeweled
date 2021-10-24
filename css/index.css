@@ -104,7 +104,7 @@ i {
     color: #0062f4;
     color: #06f;
     color: #04f;
-    font-size: 44px;
+    font-size: 42px;
 }
 .jewel-5 {
     color: #323232;
@@ -123,8 +123,8 @@ i {
 }
 
 .jewel-poof {
-    border: gold 5px solid;
-    border: gold 5px solid;
+    /* border: gold 5px solid; */
+    /* border: gold 5px solid; */
     /* display: none; */
     transform: rotate(720deg) scale(2);
     transition: all 0.5s ease;
