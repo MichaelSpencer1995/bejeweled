@@ -82,7 +82,7 @@ i {
 .jewel-0 {
     color: #d00;
     color: #d40000;
-    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
+    font-size: 45px;
 }
 .jewel-1 {
     color: #bf5700;
@@ -98,6 +98,7 @@ i {
 .jewel-3 {
     color: #14b400;
     color: #1be0b2;
+    color: #1be021;
 }
 .jewel-4 {
     color: #0062f4;

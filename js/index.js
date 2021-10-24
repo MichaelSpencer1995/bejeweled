@@ -68,7 +68,7 @@ function initModel(debug) {
             }
         }
         if(settings.horAndVer) {
-            let c1 = 1
+            let c1 = 6
             let c2 = 4
             let c3 = 5
             state.model[34].color = colors[colors[c2]]

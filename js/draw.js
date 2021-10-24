@@ -6,13 +6,13 @@ function drawModel(useNextModel) {
         const jewels = document.querySelectorAll(`.col-${i} .jewel-inner`)
         model.forEach(jewel => {
             let classes = [
-                ['fas', 'fa-apple-alt'],
-                ['fab', 'fa-phoenix-squadron'],
+                ['fas', 'fa-bomb'],
+                ['fas', 'fa-carrot'],
                 ['fas', 'fa-lemon'],
-                ['fab', 'fa-freebsd'],
+                ['fab', 'fa-jira'],
                 ['fas', 'fa-bowling-ball'],
                 ['fab', 'fa-evernote'],
-                ['fab', 'fa-sketch']
+                ['fas', 'fa-crow']
             ]
             let color
             if(jewel.color == 0) { color = [classes[0][0], classes[0][1]] }
