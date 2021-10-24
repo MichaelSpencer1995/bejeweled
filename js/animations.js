@@ -54,26 +54,21 @@ function animateSwapBack() {
 }
 
 function handleAnimationEnded(event) {
-    if(event.propertyName == 'bottom' && state.oneTime) {
-        console.log('once')
-        state.oneTime = false
-        document.querySelectorAll('.jewel-inner').forEach(jewel => {
-            // jewel.classList.remove('shifted')
-            // jewel.removeAttribute('style')
-        })
-        state.model = state.nextModel
-        state.nextModel = []
-        state.move1.isActive = false
-        state.move1.id = null
-        state.move2.isActive = false
-        state.move2.id = null
-        state.swapBack = false
-        state.endSwapping = false
-        state.animateScoring = false
-        state.scoringPieces = []
-        state.model.forEach(jewel => {
-            jewel.originalCoors = null
-        })
+    if(event.propertyName == 'bottom' && state.gravityApplied) {
+        console.log('gravity applied')
+        // state.model = state.nextModel
+        // state.nextModel = []
+        // state.move1.isActive = false
+        // state.move1.id = null
+        // state.move2.isActive = false
+        // state.move2.id = null
+        // state.swapBack = false
+        // state.endSwapping = false
+        // state.animateScoring = false
+        // state.scoringPieces = []
+        // state.model.forEach(jewel => {
+        //     jewel.originalCoors = null
+        // })
     }
     if(event.propertyName == 'transform') {
         if(state.jewelsDonePoofing) {
@@ -84,12 +79,11 @@ function handleAnimationEnded(event) {
             })
 
             drawModel(true)
-            state.oneTime = true
             const els = document.querySelectorAll('.shifted')
             const animationClock = setInterval(() => {
                 console.log('gravity interval frame')
-                els.forEach(el => {
-                    if(el.style.bottom == '0px') {
+                for(let i=0; i<els.length; i++) {
+                    if(els[i].style.bottom == '0px') {
                         let finished = true
                         els.forEach(el => {
                             if(el.style.bottom != '0px') {
@@ -98,16 +92,16 @@ function handleAnimationEnded(event) {
                         })
                         if(finished) {
                             stopAnimation()
+                            updateModels()
+                            break
                         }
-                        return
                     } else {
-                        let num = parseInt(el.style.bottom)
+                        let num = parseInt(els[i].style.bottom)
                         num -= 5
-                        el.style.bottom = num + 'px'
+                        els[i].style.bottom = num + 'px'
                     }
-                })
-                
-            }, 100)
+                }
+            }, 20)
             function stopAnimation() {
                 clearInterval(animationClock)
             }

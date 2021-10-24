@@ -55,3 +55,7 @@ function modelsEqual() {
     })
     return match
 }
+
+function updateModels() {
+    console.log(state)
+}
