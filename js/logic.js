@@ -29,7 +29,13 @@ function shiftJewel(jewel) {
     if(jewelBelow) {
         if(jewelBelow.color == null) {
             if(!jewel.originalCoors) {
+                // on horizontal everthing moves once.. on vertical, when it goes to move again its gonna have
+                // some originalCoors already, so if it gets original coors once it can move but it cant change
+                // its original coors so the coors would have to get swapped with the color right?
                 jewelBelow.originalCoors = [jewel.x, jewel.y]
+            } else {
+                jewelBelow.originalCoors = jewel.originalCoors
+                jewel.originalCoors = null
             }
             const c1 = jewel.color
             const c2 = jewelBelow.color
