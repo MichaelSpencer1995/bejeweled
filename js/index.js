@@ -26,6 +26,7 @@ function initDom() {
     }
     setUpJewelListeners()
     setupButtons()
+    score.innerHTML = state.score
 }
 
 
@@ -46,7 +47,8 @@ function initModel(debug) {
                 }),
                 potentialScorer: false,
                 open: false,
-                originalCoors: null
+                originalCoors: null,
+                pointScorer: false
             }
             state.model.push(jewel)
             id++

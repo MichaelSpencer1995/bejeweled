@@ -1,5 +1,3 @@
-// function scoreWinners() { console.log('score these', state.scoringPieces) }
-
 function shiftJewels(model) {
     console.log('shift jewels')
     model.forEach(jewel => {
@@ -65,6 +63,12 @@ function handleJewelClicked() {
         state.move1.isActive = true
         state.move1.id = this.id
         return
+    } else {
+        if(this.id == state.move1.id) {
+            this.firstChild.classList.remove('jewel-active')
+            state.move1.isActive = false  
+            state.move1.id = null    
+        }
     }
     if(!state.move2.isActive) {
         let adjacentJewel = secondMoveAdjacent(this)
@@ -119,8 +123,15 @@ function fillNoobs() {
     }
 }
 
+function scoreWinners() {
+    let x = state.scoringPieces.length * 3
+    state.score += x
+    score.innerHTML = state.score
+}
+
 function runFullScore(dir) {
     state.gameLocked = true
+    scoreWinners()
     createNextModel()
     shiftJewels(state.nextModel)
     fillNoobs()
@@ -129,35 +140,9 @@ function runFullScore(dir) {
 
 function swapJewels(dir) {
     if(moveValid()) {
-        // scoreWinners()
-        // createNextModel()
         runFullScore(dir)
-        // animateSwap(dir)
-        
-        // genrate new model
-            // swap pieces in model
-            // find all deleteable pieces
-            // delete them/update score
-            // move all pieces down into open spaces
-            // generate new random color values in the new empty jewel spots
-        // animate
-            // perhaps the entire new dom needs to be created immidiatly
-            // all the pieces pre shifted, and then the animate class needs to be added
-
-            // swap original two pieces in model
-            // all deletable pieces (usually just the 3 connected recently formed)
-            // flash disappear of all pieces( transition fade away but keep in dom)
-            // all jewels above empty pieces need to transition down however many
-            // pixels tall got deleted (3 vertical 180px), (3 horizontal 60px etc)
-            
     } else {
         animateSwap(dir, true)
-        // state.move1.isActive = false
-        // state.move2.isActive = false
-        // state.move1.id = null
-        // state.move2.id = null
-        // animate swap and return
-        // unlock game/reset jewel pieces in state isActive to
     }
 }
 

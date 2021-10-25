@@ -1,7 +1,9 @@
 const startButton = document.getElementById('start')
 const muteButton = document.getElementById('mute')
 const gameBoard = document.getElementById('game-board')
+const score = document.getElementById('score')
 const state = {
+    score: localStorage.getItem('highscore') || 0,
     model: [],
     nextModel: [],
     move1: {

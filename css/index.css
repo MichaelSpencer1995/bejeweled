@@ -1,11 +1,22 @@
 body {
     background: black;
+    font-family: helvetica;
 }
 
 .container {
     /* display: flex; */
     width: 480px;
     margin: 36px auto 0 auto;
+}
+
+.lower-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#score {
+    color: white;
+    font-size: 46px;
 }
 
 #game-board {
