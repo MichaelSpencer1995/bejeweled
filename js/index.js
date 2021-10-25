@@ -104,7 +104,6 @@ function setupButtons() {
             document.getElementById('mute').classList.add('toggle-mute')
         } else {
             document.getElementById('mute').classList.remove('toggle-mute')
-
         }
     })
 }
