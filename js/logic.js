@@ -1,5 +1,4 @@
 function shiftJewels(model) {
-    console.log('shift jewels')
     model.forEach(jewel => {
         shiftJewel(jewel)
     })
@@ -8,11 +7,6 @@ function shiftJewels(model) {
         let nullFound = false
         col.forEach(j => {
             if(j.color && nullFound) {
-                // starting from bottom to top of each column.. if a empty spot is found AND the next jewel above it
-                // has a color... that means all the jewels have NOT made their way to the bottom of the game board
-                // so shiftJewels needs to run on all the jewels again until (when starting from the bottom up of
-                // each column) every jewel that is null (empty ie recently scored) has nothing but other empty's
-                // above it.. meaning there are no floating jewels
                 shiftJewels(model)
             }
             if(j.color == null) {
@@ -27,9 +21,6 @@ function shiftJewel(jewel) {
     if(jewelBelow) {
         if(jewelBelow.color == null) {
             if(!jewel.originalCoors) {
-                // on horizontal everthing moves once.. on vertical, when it goes to move again its gonna have
-                // some originalCoors already, so if it gets original coors once it can move but it cant change
-                // its original coors so the coors would have to get swapped with the color right?
                 jewelBelow.originalCoors = [jewel.x, jewel.y]
             } else {
                 jewelBelow.originalCoors = jewel.originalCoors
@@ -89,10 +80,8 @@ function handleJewelClicked() {
 
 function secondMoveAdjacent(jewel) {
     let cnd = false
-    console.log(state.move1, state.move2)
     let j1 = getJewelInModelBy('id', state.move1.id)
     let j2 = getJewelInModelBy('id', jewel.id)
-    console.log(j1, j2, state)
     if((j2.x -1 == j1.x) && (j2.y == j1.y)) { cnd = 'left' }
     if((j2.x +1 == j1.x) && (j2.y == j1.y)) { cnd = 'right' }
     if((j2.x == j1.x) && (j2.y -1 == j1.y)) { cnd = 'above' }
@@ -102,7 +91,6 @@ function secondMoveAdjacent(jewel) {
 
 function fillNoobs() {
     for(let i=0; i<8; i++) {
-        // same here going through each instead of just 8
         let noobs = 0
         let col = []
         let coors = []
@@ -145,8 +133,6 @@ function swapJewels(dir) {
     }
 }
 
-
-// maybe should be called scored() instead of moveValid()
 function moveValid() {
     let j1, j2, x1, x2
     if(state.move1.id && state.move2.id) {
