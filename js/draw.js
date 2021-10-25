@@ -15,10 +15,10 @@ function drawModel(useNextModel) {
                 ['fas', 'fa-crow']
             ]
             let color
-            if(jewel.color == 0) { color = [classes[0][0], classes[0][1]] }
-            if(jewel.color == 1) { color = [classes[3][0], classes[3][1]] }
+            if(jewel.color == 0) { color = [classes[3][0], classes[3][1]] }
+            if(jewel.color == 1) { color = [classes[1][0], classes[1][1]] }
             if(jewel.color == 2) { color = [classes[2][0], classes[2][1]] }
-            if(jewel.color == 3) { color = [classes[1][0], classes[1][1]] }
+            if(jewel.color == 3) { color = [classes[0][0], classes[0][1]] }
             if(jewel.color == 4) { color = [classes[4][0], classes[4][1]] }
             if(jewel.color == 5) { color = [classes[6][0], classes[6][1]] }
             if(jewel.color == 6) { color = [classes[5][0], classes[5][1]] }
