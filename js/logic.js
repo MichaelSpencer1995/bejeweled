@@ -7,10 +7,6 @@ function shiftJewels(model) {
         let col = model.filter(j => j.x == i).reverse()
         let nullFound = false
         col.forEach(j => {
-            if(j.color == null) {
-                nullFound = true
-                // return
-            }
             if(j.color && nullFound) {
                 // starting from bottom to top of each column.. if a empty spot is found AND the next jewel above it
                 // has a color... that means all the jewels have NOT made their way to the bottom of the game board
@@ -18,6 +14,9 @@ function shiftJewels(model) {
                 // each column) every jewel that is null (empty ie recently scored) has nothing but other empty's
                 // above it.. meaning there are no floating jewels
                 shiftJewels(model)
+            }
+            if(j.color == null) {
+                nullFound = true
             }
         })
     }
