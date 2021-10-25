@@ -1,3 +1,10 @@
+<?php
+session_start();
+    include('connections.php');
+    include('functions.php');
+    $user_data = check_login($con);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,13 +22,13 @@
             <i id="close-menu"class="far fa-times-circle" style="display: none"></i>
             <div class="top-half-container">
                 <div class="sign-container">
-                    <a href="#">Sign in</a>
+                    <a href="login-signup.php">Sign in</a>
                     <span>or </span>
-                    <a href="#">Sign up</a>
+                    <a href="login-signup.php">Sign up</a>
                     <p>to upload highscore.</p>
                 </div>
                 <p></p>
-                <button id="start">Start Game</button>
+                <button id="start" class="btn-primary">Start Game</button>
             </div>
             <div class="mute-container">
                 <i id="mute"class="fas fa-volume-up"></i>

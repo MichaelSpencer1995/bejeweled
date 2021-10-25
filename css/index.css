@@ -9,6 +9,10 @@ a {
     font-size: 17px;
 }
 
+a:hover {
+    color: #ccc;
+}
+
 .game-container {
     position: relative;
 }
@@ -90,14 +94,14 @@ a {
     display: flex;
 }
 
-#start {
+.btn-primary {
     background: white;
     border: none;
     padding: 2px 10px;
     cursor: pointer;
     position: relative;
 }
-#start:hover {
+.btn-primary:hover {
     top: 1px;
 }
 
@@ -216,7 +220,10 @@ i {
     transform: translateY(60px);
 }
 
-.shifted {
-    /* background: linear-gradient(rgba(0rgba(255, 255, 255, 0.306) 0, 0.449), #fff);
-    background: violet; */
+.login-page-container {
+    margin: 0 auto;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
