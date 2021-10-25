@@ -52,7 +52,6 @@ function animateSwap(dir, swapBack) {
 }
 
 function animateSwapBack() {
-    sounds.swap.play()
     if(!state.mute) { sounds.swap.play() }
     state.swapBack = false
     state.endSwapping = true
