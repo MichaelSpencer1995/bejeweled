@@ -111,7 +111,7 @@ function fillNoobs() {
 }
 
 function scoreWinners() {
-    let x = state.scoringPieces.length * 130000
+    let x = state.scoringPieces.length * 30
     state.score += x
     score.innerHTML = formatCommas(state.score)
     if(state.score > state.highscore) {
