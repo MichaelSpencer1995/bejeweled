@@ -111,9 +111,15 @@ function fillNoobs() {
 }
 
 function scoreWinners() {
-    let x = state.scoringPieces.length * 3
+    let x = state.scoringPieces.length * 130000
     state.score += x
-    score.innerHTML = state.score
+    score.innerHTML = formatCommas(state.score)
+    if(state.score > state.highscore) {
+        localStorage.setItem('highscore', state.score)
+        state.highscore = state.score
+        highscore.innerHTML = formatCommas(state.highscore)
+        console.log(state.score)
+    }
 }
 
 function runFullScore(dir) {

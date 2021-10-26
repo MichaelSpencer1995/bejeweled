@@ -27,8 +27,8 @@ function initDom() {
     setUpJewelListeners()
     setupButtons()
     score.innerHTML = state.score
+    highscore.innerHTML = formatCommas(state.highscore)
 }
-
 
 
 function initModel(debug) {
@@ -101,9 +101,13 @@ function setupButtons() {
         state.mute = !state.mute
         console.warn(state.mute)
         if(state.mute) {
-            document.getElementById('mute').classList.add('toggle-mute')
+            document.getElementById('mute').classList.remove('fa-volume-up')
+            document.getElementById('mute').classList.add('fa-volume-mute')
+
         } else {
-            document.getElementById('mute').classList.remove('toggle-mute')
+            document.getElementById('mute').classList.add('fa-volume-up')
+            document.getElementById('mute').classList.remove('fa-volume-mute')
+
         }
     })
 }

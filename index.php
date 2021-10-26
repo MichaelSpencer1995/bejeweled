@@ -21,6 +21,7 @@ session_start();
 <body>
 <div class="container">
     <div class="game-container">
+        
         <div class="menu-container">
             <i id="close-menu"class="far fa-times-circle" style="display: none"></i>
             <div class="top-half-container">
@@ -28,7 +29,7 @@ session_start();
                     <a href="login-signup.php">Sign in</a>
                     <span>or </span>
                     <a href="login-signup.php">Sign up</a>
-                    <p>to upload highscore.</p>
+                    <p>to save highscore.</p>
                 </div>
                 <p></p>
                 <button id="start" class="btn-primary">Start Game</button>

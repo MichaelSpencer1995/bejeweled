@@ -4,6 +4,8 @@ const gameBoard = document.getElementById('game-board')
 const menu = document.querySelector('.menu-container')
 const gameSettings = document.getElementById('settings')
 const closeMenu = document.getElementById('close-menu')
+const score = document.getElementById('score')
+const highscore = document.getElementById('highscore')
 
 
 gameSettings.addEventListener('click', handleSettingsClicked)
@@ -11,9 +13,9 @@ startButton.addEventListener('click', handleStartClicked)
 closeMenu.addEventListener('click', handleSettingsClicked)
 
 
-const score = document.getElementById('score')
 const state = {
-    score: localStorage.getItem('highscore') || 0,
+    highscore: localStorage.getItem('highscore') || 0,
+    score: 0,
     model: [],
     nextModel: [],
     move1: {

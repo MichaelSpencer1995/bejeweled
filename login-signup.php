@@ -7,6 +7,7 @@ session_start();
         // something was posted
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
+        $highscore = $_POST['highscore'];
 
         if(!empty($user_name) && !empty($password)) {
             // $query2 = "SELECT user_name FROM users WHERE user_name=.$user_name.";
@@ -16,7 +17,12 @@ session_start();
                 if($user_data['password'] === $password) {
                     // should maybe be user_id like in the tutorial instead of user_name as the session 'token' or whatever you call it
                     $_SESSION['user_name'] = $user_data['user_name'];
+                    if($user_data['highscore'] > $highscore) {
+                        $query = "update users set highscore='".$highscore."' where user_name='".$_SESSION['user_name']."'";
+                        mysqli_query($con, $query);
+                    }
                     header("Location: index.php");
+                    echo($highscore);
                     die;
                 } else {
                     echo('something went wrong');
@@ -47,6 +53,7 @@ session_start();
         <div class="form-container">
             <form method="post" style='display: block'>
                 <h2 style="font-weight: 100;">Sign In/Sign Up</h2>
+                <input id="hs" hidden type="number" name="highscore"><br>
                 <label for="user_name">Username</label><br>
                 <input type="text" id="user_name" name="user_name"><br>
                 <label for="password">Password</label><br>
@@ -58,5 +65,6 @@ session_start();
             <div style="margin-top: 10px;"><span>or just </span><a href="index.php">Play locally</a></div>
         </div>
     </div>
+<script>document.getElementById('hs').value = parseInt(localStorage.getItem('highscore'))</script>
 </body>
 </html>

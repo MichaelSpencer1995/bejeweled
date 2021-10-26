@@ -89,3 +89,33 @@ function updateModels() {
         state.gameLocked = false
     }
 }
+
+function formatCommas(x) {
+    let num = (x + '').split('').reverse()
+    let toFormat = []
+    let formatted = ''
+    if(num.length >= 4) {
+        for(let i=0; i<num.length; i++) {
+            if(i % 3 == 0 && i != 0) {
+                toFormat.push(',')
+                toFormat.push(num[i])
+            } else {
+                toFormat.push(num[i])
+            }
+        }
+        toFormat = toFormat.reverse()
+        for(let i=0; i<toFormat.length; i++) {
+            formatted += toFormat[i]
+        }
+
+        return formatted
+    }
+    return x
+}
+
+console.log(formatCommas(1500000000))
+console.log(formatCommas(999))
+console.log(formatCommas(24242452525252525))
+console.log(formatCommas(555555))
+console.log(formatCommas(666666))
+console.log(formatCommas(7777777777))
