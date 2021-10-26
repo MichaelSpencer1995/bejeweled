@@ -9,19 +9,24 @@ session_start();
         $password = $_POST['password'];
 
         if(!empty($user_name) && !empty($password)) {
-            debug_to_console('hello world');
-            debug_to_console($user_name);
-            debug_to_console($password);
-            $query = "SELECT user_name FROM users WHERE user_name=.$user_name.";
-            $returned = mysqli_query($con, $query);
-            debug_to_console($returned);
+            // $query2 = "SELECT user_name FROM users WHERE user_name=.$user_name.";
+            $result = mysqli_query($con, "select * from users where user_name='".$user_name."'");
+            if(!$result->num_rows) {
+                $query = "insert into users (user_name, password) values ('$user_name', '$password')";
+                mysqli_query($con, $query);
+            } else {
+                while($row = $result->fetch_array()) {
+                    echo 'user already exists: '.$row['user_name'];
+                    echo "<br />";
+                }
+            }
             // if(already a username) {
             //     sign in
             // } else {
             //     save to db and sign in
             // }
         } else {
-            debug_to_console('fefefaefef');
+            echo('empty user name and password');
         }
     }
 ?>
