@@ -10,7 +10,6 @@ function check_login($con) {
             return $user_data;
         }
     } else {
-        echo('not logged in');
         // redirect to login, except actually we dont have to
     }
 }

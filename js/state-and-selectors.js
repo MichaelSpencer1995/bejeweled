@@ -45,18 +45,28 @@ const sounds = {
 function handleStartClicked() {
     menu.style.display = 'none'
     state.menuOpen = false
-    gameSettings.style.display = 'block'
+    gameSettings.style.display = 'flex'
     closeMenu.style.display = 'block'
     startButton.style.display = 'none'
     launch()
 }
 
 function handleSettingsClicked() {
+    const bar1 = document.querySelector('.bar1')
+    const bar2 = document.querySelector('.bar2')
+    const bar3 = document.querySelector('.bar3')
+
     state.menuOpen = !state.menuOpen
-    console.log(state.menuOpen)
     if(state.menuOpen) {
+        bar1.style = 'transform: rotate(-45deg); top: 6px;'
+        bar2.style = 'opacity: 0;'
+        bar3.style = 'transform: rotate(45deg); top: -7px;'
         menu.style.display = 'flex'
+        // gameSettings.fir
     } else {
+        bar1.style = ''
+        bar2.style = ''
+        bar3.style = ''
         menu.style.display = 'none'
 
     }

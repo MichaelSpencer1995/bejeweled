@@ -64,9 +64,10 @@ function initModel(debug) {
             id++
         }
     }
-    if(debug) {
+    if(settings.dev) {
         let colors = [0,1,2,3,4,5,6]
         if(settings.maxPoints) {
+            console.log('test')
             for(let i=0; i<64; i++) {
                 if(i % 3 == 0) { state.model[i].color = colors[0] }
                 if(i % 3 == 1) { state.model[i].color = colors[2] }
@@ -80,7 +81,7 @@ function initModel(debug) {
             }
         }
         if(settings.horAndVer) {
-            let c1 = 6
+            let c1 = 3
             let c2 = 4
             let c3 = 5
             state.model[34].color = colors[colors[c2]]

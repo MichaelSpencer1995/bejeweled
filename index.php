@@ -3,9 +3,10 @@ session_start();
     include('connections.php');
     include('functions.php');
     $user_data = check_login($con);
-    if($user_data) {
-        echo('You are signed in '.$user_data['user_name']);
-    }
+    // if($user_data) {
+        
+        // echo('You are signed in '.$user_data['user_name']);
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +20,24 @@ session_start();
     <script src="https://kit.fontawesome.com/07fc9dc957.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="settings-container">
+    <?php
+        if($user_data) {
+            echo '<p>Welcome, '.$user_data['user_name'].'</p>';
+        } else {
+            echo '<p>You are not logged in!</p>';
+        }
+    ?>
+    
+    <div id="settings" style="display: none">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+    <!-- <i style="display: none" id="settings" class="fas fa-bars"></i> -->
+</div>
 <div class="container">
     <div class="game-container">
-        
         <div class="menu-container">
             <i id="close-menu"class="far fa-times-circle" style="display: none"></i>
             <div class="top-half-container">
@@ -41,7 +57,6 @@ session_start();
         <div id="game-board"></div>
     </div>
     <div class="lower-container">
-        <div><i style="display: none" id="settings" class="fas fa-cog"></i></div>
         <div class="scores">
             <div id="score">0</div>
             <div id="highscore">0</div>

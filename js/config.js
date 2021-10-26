@@ -1,7 +1,7 @@
 const settings = {
-    // dev: true,
-    showIds: true,
+    dev: true,
+    // showIds: true,
     // maxPoints: true,
-    maxColors: 3,
-    // horAndVer: true
+    // maxColors: 3,
+    horAndVer: true
 }
