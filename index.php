@@ -3,6 +3,9 @@ session_start();
     include('connections.php');
     include('functions.php');
     $user_data = check_login($con);
+    if($user_data) {
+        echo('You are signed in '.$user_data['user_name']);
+    }
 ?>
 
 <!DOCTYPE html>

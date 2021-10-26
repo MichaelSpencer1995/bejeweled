@@ -11,20 +11,21 @@ session_start();
         if(!empty($user_name) && !empty($password)) {
             // $query2 = "SELECT user_name FROM users WHERE user_name=.$user_name.";
             $result = mysqli_query($con, "select * from users where user_name='".$user_name."'");
-            if(!$result->num_rows) {
+            if($result && mysqli_num_rows($result) > 0) {
+                $user_data = mysqli_fetch_assoc($result);
+                if($user_data['password'] === $password) {
+                    // should maybe be user_id like in the tutorial instead of user_name as the session 'token' or whatever you call it
+                    $_SESSION['user_name'] = $user_data['user_name'];
+                    header("Location: index.php");
+                    die;
+                } else {
+                    echo('something went wrong');
+                }
+            } else {
                 $query = "insert into users (user_name, password) values ('$user_name', '$password')";
                 mysqli_query($con, $query);
-            } else {
-                while($row = $result->fetch_array()) {
-                    echo 'user already exists: '.$row['user_name'];
-                    echo "<br />";
-                }
             }
-            // if(already a username) {
-            //     sign in
-            // } else {
-            //     save to db and sign in
-            // }
+    
         } else {
             echo('empty user name and password');
         }
@@ -49,7 +50,7 @@ session_start();
                 <label for="user_name">Username</label><br>
                 <input type="text" id="user_name" name="user_name"><br>
                 <label for="password">Password</label><br>
-                <input type="text" id="password" name="password">
+                <input type="password" id="password" name="password">
                 <br>
                 <input style="margin-top: 10px;"class='btn-primary' type="submit" value="Submit">
             </form>
