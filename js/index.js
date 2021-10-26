@@ -1,6 +1,6 @@
 // document.body.style.zoom = "80%"
 
-initModel(dev)
+initModel()
 initDom()
 drawModel()
 
@@ -14,12 +14,19 @@ function initDom() {
             let jewelOuter = document.createElement('div')
             let jewelInner = document.createElement('div')
             let icon = document.createElement('i')
+            let idContainer= document.createElement('div')
             jewelOuter.classList.add('jewel-outer')
+            jewelInner.classList.add('jewel-inner')
+            idContainer.classList.add('debug-tag')
+            idContainer.innerHTML = id
+            if(settings.dev && settings.showIds) {
+                idContainer.style = 'display: block;'
+            }
             jewelOuter.id = id
             id++
-            jewelInner.classList.add('jewel-inner')
             jewelInner.appendChild(icon)
             jewelOuter.appendChild(jewelInner)
+            jewelOuter.appendChild(idContainer)
             col.appendChild(jewelOuter)
         }
         gameBoard.appendChild(col)

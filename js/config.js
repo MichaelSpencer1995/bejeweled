@@ -1,7 +1,7 @@
-const dev = true
 const settings = {
-    maxColors: 3,
-    // showIds: true,
+    dev: true,
+    showIds: true,
     // maxPoints: true,
+    maxColors: 3,
     // horAndVer: true
 }

@@ -26,9 +26,6 @@ function drawModel(useNextModel) {
             if(jewel.x == i) {
                 jewels[jewel.y].firstChild.classList.remove('jewel-0', 'jewel-1', 'jewel-2', 'jewel-3', 'jewel-4', 'jewel-5', 'jewel-6', 'fas', 'fab', classes[0][1], classes[1][1], classes[2][1], classes[3][1], classes[4][1], classes[5][1], classes[6][1])
                 jewels[jewel.y].firstChild.classList.add(`jewel-${jewel.color}`, color[0], color[1])
-                if(dev && settings.showIds) {
-                    jewels[jewel.y].innerHTML = jewel.id
-                }
             }
             if(jewel.originalCoors && jewel.x == i) {
                 jewels[jewel.y].classList.add('shifted')
