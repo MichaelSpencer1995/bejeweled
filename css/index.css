@@ -28,8 +28,7 @@ a:hover {
     bottom: 0;
     left: 0;
     background: rgb(0 0 0 / 88%);
-    background: radial-gradient(#000000fa, #030303);
-    background: radial-gradient(#ffffff, #030303f0);
+    background: radial-gradient(#ffffff, #030303fc);
     z-index: 100;
     text-align: center;
 }
@@ -180,12 +179,15 @@ i {
 .jewel-2 {
     color: #ffce00;
     color: #FFD700;
+    color: #ffdb18;
     font-size: 36px;
 }
 .jewel-3 {
     color: #14b400;
     color: #1be0b2;
     color: #1be021;
+    color: #00d939;
+    font-size: 34px !important;
 }
 .jewel-4 {
     color: #0062f4;
@@ -197,7 +199,9 @@ i {
     color: #323232;
     color: #000;
     color: #c100bc;
+    font-size: 39px !important;
     font-size: 44px;
+    transform: scale(-1, 1);
 }
 .jewel-6 {
     color: #fff;
