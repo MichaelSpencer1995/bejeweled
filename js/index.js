@@ -1,8 +1,11 @@
 // document.body.style.zoom = "80%"
 
-initModel()
-initDom()
-drawModel()
+
+function launch() {
+    initModel()
+    initDom()
+    drawModel()
+}
 
 function initDom() {
     let id = 0

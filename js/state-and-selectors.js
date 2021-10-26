@@ -48,6 +48,7 @@ function handleStartClicked() {
     gameSettings.style.display = 'block'
     closeMenu.style.display = 'block'
     startButton.style.display = 'none'
+    launch()
 }
 
 function handleSettingsClicked() {
