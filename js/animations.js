@@ -75,7 +75,6 @@ function handleAnimationEnded(event) {
             drawModel(true)
             const els = document.querySelectorAll('.shifted')
             const animationClock = setInterval(() => {
-                console.log('gravity interval frame')
                 for(let i=0; i<els.length; i++) {
                     if(els[i].style.bottom == '0px') {
                         let finished = true
@@ -110,12 +109,10 @@ function handleAnimationEnded(event) {
             state.move1.id = null
             state.move2.id = null
             state.endSwapping = false
-            console.log('scoring pieces', state.scoringPieces)
    
         }
         if(state.swapBack && event.srcElement.parentElement.id == state.move2.id) {
             animateSwapBack()
-            console.log(state.scoringPieces)
         }
     }
 }

@@ -10,8 +10,6 @@ gameSettings.addEventListener('click', handleSettingsClicked)
 startButton.addEventListener('click', handleStartClicked)
 
 const state = {
-    highscore: localStorage.getItem('highscore') || 0,
-    score: 0,
     model: [],
     nextModel: [],
     move1: {
@@ -29,7 +27,13 @@ const state = {
     scoringPieces: [],
     gameLocked: false,
     mute: false,
-    menuOpen: true
+    menuOpen: true,
+    highscore: localStorage.getItem('highscore') || 0,
+    score: {
+        val: 0,
+        multiplier: 1,
+        isChaining: false
+    }
 }
 
 const sounds = {

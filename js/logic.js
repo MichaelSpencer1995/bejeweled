@@ -62,7 +62,6 @@ function handleJewelClicked() {
     }
     if(!state.move2.isActive) {
         let adjacentJewel = secondMoveAdjacent(this)
-        console.log(adjacentJewel)
         if(adjacentJewel) {
             this.firstChild.classList.add('jewel-active')
             state.move2.isActive = true
@@ -112,13 +111,12 @@ function fillNoobs() {
 
 function scoreWinners() {
     let x = state.scoringPieces.length * 10000
-    state.score += x
-    score.innerHTML = formatCommas(state.score)
-    if(state.score > state.highscore) {
-        localStorage.setItem('highscore', state.score)
-        state.highscore = state.score
+    state.score.val += x
+    score.innerHTML = formatCommas(state.score.val)
+    if(state.score.val > state.highscore) {
+        localStorage.setItem('highscore', state.score.val)
+        state.highscore = state.score.val
         highscore.innerHTML = formatCommas(state.highscore)
-        console.log(state.score)
     }
 }
 

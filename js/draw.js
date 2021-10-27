@@ -1,6 +1,4 @@
 function drawModel(useNextModel) {
-    console.log('draw')
-
     const model = useNextModel ? state.nextModel : state.model
     for(let i=0; i<8; i++) {
         const jewels = document.querySelectorAll(`.col-${i} .jewel-inner`)
@@ -36,7 +34,6 @@ function drawModel(useNextModel) {
             if(jewel.originalCoors && jewel.x == i) {
                 jewels[jewel.y].classList.add('shifted')
                 jewels[jewel.y].style.bottom = (jewel.y - jewel.originalCoors[1]) * 60 + 'px'
-                console.log(jewel.id, jewel.y, jewel.originalCoors)
             }
         })
     }

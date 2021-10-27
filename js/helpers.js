@@ -20,7 +20,6 @@ function setColor(cur) {
 }
 
 function getJewelInModelBy(type, data, useNextModel) {
-    // console.log(type, data, useNextModel)
     // maybe this should not be a boolean but pass in model everytime?
     const xs = useNextModel ? state.nextModel : state.model
     return xs.filter(domEl => {
@@ -79,8 +78,13 @@ function updateModels() {
     })
     drawModel()
     if(moveValid()) {
+        state.score.isChaining = true
+        state.score.multiplier++
+        console.log(state.score.multiplier)
         runFullScore()
     } else {
+        state.score.isChaining = false
+        state.score.multiplier = 1
         state.gameLocked = false
     }
 }
@@ -117,17 +121,21 @@ function weightedRandom(prob) {
 }
 
 function randomJewel(except) {
-    let colors = settings.dev && settings.maxColors ? settings.maxColors : 7
-    let num = weightedRandom({
-        0: 0.14,
-        1: 0.14,
-        2: 0.14,
-        3: 0.14,
-        4: 0.14,
-        5: 0.14,
-        6: 0.14,
-        7: 0.01,
-        8: 0.001
-    })
+    let num
+    if(settings.dev && settings.maxColors) {
+        num = Math.floor(Math.random() * settings.maxColors)
+    } else {
+        num = weightedRandom({
+            0: 0.14,
+            1: 0.14,
+            2: 0.14,
+            3: 0.14,
+            4: 0.14,
+            5: 0.14,
+            6: 0.14,
+            7: 0.01,
+            8: 0.0001
+        })
+    }
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num
 }
