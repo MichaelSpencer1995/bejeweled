@@ -111,8 +111,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* display: none; */
-    /* flex-basis: auto !important; */
 } .bar {
     transition: all 0.3s ease-in-out;
     width: 100%;
@@ -120,7 +118,6 @@ a:hover {
     position: relative;
     height: 2px;
     background: white;
-    /* display: none; */
 } .settings-container {
     position: relative;
     top: 17px;
@@ -128,14 +125,7 @@ a:hover {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-} #close-menu {
-    position: absolute;
-    right: 0;
-    padding: 10px 9px;
-    top: 0;
-    font-size: 17px !important;
-}
-#mute:hover, #settings:hover, #close-menu {
+} #mute:hover, #settings:hover {
     cursor: pointer;
 } .mute-container {
     display: flex;

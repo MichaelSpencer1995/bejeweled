@@ -3,15 +3,11 @@ const muteButton = document.getElementById('mute')
 const gameBoard = document.getElementById('game-board')
 const menu = document.querySelector('.menu-container')
 const gameSettings = document.getElementById('settings')
-const closeMenu = document.getElementById('close-menu')
 const score = document.getElementById('score')
 const highscore = document.getElementById('highscore')
 
-
 gameSettings.addEventListener('click', handleSettingsClicked)
 startButton.addEventListener('click', handleStartClicked)
-closeMenu.addEventListener('click', handleSettingsClicked)
-
 
 const state = {
     highscore: localStorage.getItem('highscore') || 0,
@@ -46,7 +42,6 @@ function handleStartClicked() {
     menu.style.display = 'none'
     state.menuOpen = false
     gameSettings.style.display = 'flex'
-    closeMenu.style.display = 'block'
     startButton.style.display = 'none'
     launch()
 }
@@ -62,12 +57,10 @@ function handleSettingsClicked() {
         bar2.style = 'opacity: 0;'
         bar3.style = 'transform: rotate(45deg); top: -7px;'
         menu.style.display = 'flex'
-        // gameSettings.fir
     } else {
         bar1.style = ''
         bar2.style = ''
         bar3.style = ''
         menu.style.display = 'none'
-
     }
 }

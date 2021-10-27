@@ -39,7 +39,6 @@ session_start();
 <div class="container">
     <div class="game-container">
         <div class="menu-container">
-            <i id="close-menu"class="far fa-times-circle" style="display: none"></i>
             <div class="top-half-container">
                 <div class="sign-container">
                     <a href="login-signup.php">Sign in</a>
