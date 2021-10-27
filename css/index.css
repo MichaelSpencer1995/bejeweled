@@ -1,9 +1,23 @@
 body {
     color: white;
     background: rgb(255, 255, 255);
-    background: #ffffff;
+    background: #000000;
     font-family: helvetica;
 }
+
+@-webkit-keyframes rotate {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+/* 
+#refresh {
+    background:gold
+    -webkit-animation: rotate 3s linear infinite;
+} */
 
 a {
     color: white;
@@ -163,6 +177,22 @@ a:hover {
     border-radius: 2px;
     padding: 1px 0px;
     display: none;
+
+
+    /* all i know is i need these applied to the spinning grav thing pokemon thing */
+    /* color: black;
+    position: absolute;
+    background: radial-gradient(#ffffff70, #2c0903);
+    border-radius: 41
+px
+;
+    display: none;
+    height: 8
+px
+;
+    width: 8
+px
+; */
 }
 
 .jewel-inner {
@@ -228,8 +258,10 @@ i {
 }
 .jewel-6 {
     color: #fff;
-    color: #3a3a3a;
+    /* color: #3a3a3a; */
     font-size: 47px;
+    /* -webkit-animation: rotate 3s linear infinite; */
+
 }
 
 .jewel-active {
@@ -238,7 +270,7 @@ i {
 
 .jewel-poof {
     transform: rotate(720deg) scale(2);
-    transition: all 0.5s ease;
+    transition: all .3s ease;
     opacity: 0;
 }
 

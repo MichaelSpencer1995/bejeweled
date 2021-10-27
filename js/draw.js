@@ -7,12 +7,14 @@ function drawModel(useNextModel) {
         model.forEach(jewel => {
             let classes = [
                 ['fas', 'fa-cannabis'],
+                // ['fas', 'fa-cannabis'],
                 ['fas', 'fa-carrot'],
                 ['fas', 'fa-lemon'],
                 ['fas', 'fa-bullseye'],
                 ['fas', 'fa-bowling-ball'],
                 ['fab', 'fa-evernote'],
                 ['fas', 'fa-crow']
+                // ['fab', 'fa-hornbill']
             ]
             let color
             if(jewel.color == 0) { color = [classes[0][0], classes[0][1]] }
