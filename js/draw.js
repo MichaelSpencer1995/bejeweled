@@ -6,15 +6,17 @@ function drawModel(useNextModel) {
         const jewels = document.querySelectorAll(`.col-${i} .jewel-inner`)
         model.forEach(jewel => {
             let classes = [
-                ['fas', 'fa-cannabis'],
+                ['fas', 'fa-feather'],
                 // ['fas', 'fa-cannabis'],
-                ['fas', 'fa-carrot'],
+                ['fas', 'fa-fish'],
                 ['fas', 'fa-lemon'],
-                ['fas', 'fa-bullseye'],
+                // ['fas', 'fa-bullseye'],
+                ['fas', 'fa-frog'],
                 ['fas', 'fa-bowling-ball'],
                 ['fab', 'fa-evernote'],
-                ['fas', 'fa-crow']
-                // ['fab', 'fa-hornbill']
+                ['fas', 'fa-crow'],
+                ['fab', 'fa-hornbill'],
+                ['fab', 'fa-hornbill']
             ]
             let color
             if(jewel.color == 0) { color = [classes[0][0], classes[0][1]] }
@@ -24,6 +26,8 @@ function drawModel(useNextModel) {
             if(jewel.color == 4) { color = [classes[4][0], classes[4][1]] }
             if(jewel.color == 5) { color = [classes[5][0], classes[5][1]] }
             if(jewel.color == 6) { color = [classes[6][0], classes[6][1]] }
+            if(jewel.color == 7) { color = [classes[7][0], classes[7][1]] }
+            if(jewel.color == 8) { color = [classes[8][0], classes[8][1]] }
             // its kinda dumb that this goes through every jewel when we only need the 8 in the column
             if(jewel.x == i) {
                 jewels[jewel.y].firstChild.classList.remove('jewel-0', 'jewel-1', 'jewel-2', 'jewel-3', 'jewel-4', 'jewel-5', 'jewel-6', 'fas', 'fab', classes[0][1], classes[1][1], classes[2][1], classes[3][1], classes[4][1], classes[5][1], classes[6][1])

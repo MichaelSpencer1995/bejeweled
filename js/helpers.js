@@ -19,11 +19,6 @@ function setColor(cur) {
     return randomJewel(exceptions)
 }
 
-function randomJewel(except) {
-    let colors = settings.dev && settings.maxColors ? settings.maxColors : 7
-    let num = Math.floor(Math.random() * colors)
-    return (num === except[0] || num === except[1]) ? randomJewel(except) : num
-}
 function getJewelInModelBy(type, data, useNextModel) {
     // console.log(type, data, useNextModel)
     // maybe this should not be a boolean but pass in model everytime?
@@ -113,9 +108,26 @@ function formatCommas(x) {
     return x
 }
 
-console.log(formatCommas(1500000000))
-console.log(formatCommas(999))
-console.log(formatCommas(24242452525252525))
-console.log(formatCommas(555555))
-console.log(formatCommas(666666))
-console.log(formatCommas(7777777777))
+function weightedRandom(prob) {
+    let i, sum=0, r=Math.random()
+    for (i in prob) { 
+        sum += prob[i]
+        if (r <= sum) return i
+    }
+}
+
+function randomJewel(except) {
+    let colors = settings.dev && settings.maxColors ? settings.maxColors : 7
+    let num = weightedRandom({
+        0: 0.14,
+        1: 0.14,
+        2: 0.14,
+        3: 0.14,
+        4: 0.14,
+        5: 0.14,
+        6: 0.14,
+        7: 0.01,
+        8: 0.001
+    })
+    return (num === except[0] || num === except[1]) ? randomJewel(except) : num
+}

@@ -219,49 +219,44 @@ i {
 .jewel-0 {
     color: #d00;
     color: #d40000;
-    font-size: 45px;
-}
-.jewel-1 {
+} .jewel-1 {
     color: #bf5700;
     color: #B87333;
     color: #ff7400;
     color: #ff7d10;
-    font-size: 44px;
-}
-.jewel-2 {
+} .jewel-2 {
     color: #ffce00;
     color: #FFD700;
     color: #ffdb18;
-    font-size: 36px;
-}
-.jewel-3 {
+} .jewel-3 {
     color: #14b400;
     color: #1be0b2;
     color: #1be021;
     color: #00d939;
-    font-size: 34px !important;
-}
-.jewel-4 {
+    /* font-size: 34px !important; */
+} .jewel-4 {
     color: #0062f4;
     color: #06f;
     color: #04f;
     color: #1070ff;
     font-size: 42px;
-}
-.jewel-5 {
+} .jewel-5 {
     color: #323232;
     color: #000;
     color: #c100bc;
-    font-size: 39px !important;
+    /* font-size: 39px !important; */
     font-size: 44px;
     transform: scale(-1, 1);
-}
-.jewel-6 {
+} .jewel-6 {
     color: #fff;
     /* color: #3a3a3a; */
     font-size: 47px;
-    /* -webkit-animation: rotate 3s linear infinite; */
-
+} .jewel-7 {
+    -webkit-animation: rotate 3s linear infinite;
+    color: silver;
+} .jewel-8 {
+    -webkit-animation: rotate 3s linear infinite;
+    color: gold;
 }
 
 .jewel-active {
