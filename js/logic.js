@@ -232,9 +232,8 @@ function startTimer() {
         state.time -= 10
         animateTimer()
         if(state.time <= 0) { stopTimer() }
-    }, 250)
+    }, settings.timerClock)
     function stopTimer() {
         clearInterval(timer)
     }
-
 }

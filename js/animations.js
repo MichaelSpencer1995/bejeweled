@@ -90,11 +90,11 @@ function handleAnimationEnded(event) {
                         }
                     } else {
                         let num = parseInt(els[i].style.bottom)
-                        num -= 5
+                        num -= settings.gravity.distance
                         els[i].style.bottom = num + 'px'
                     }
                 }
-            }, 7)
+            }, settings.gravity.speed)
             function stopAnimation() {
                 clearInterval(animationClock)
             }

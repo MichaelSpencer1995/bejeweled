@@ -3,5 +3,10 @@ const settings = {
     // showIds: true,
     // maxPoints: true,
     maxColors: 3,
-    // horAndVer: true
+    // horAndVer: true,
+    gravity: {
+        speed: 7,
+        distance: 5
+    },
+    timerClock: 250
 }
