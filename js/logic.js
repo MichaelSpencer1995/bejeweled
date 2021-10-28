@@ -110,7 +110,18 @@ function fillNoobs() {
 }
 
 function scoreWinners() {
-    let x = state.scoringPieces.length * 10000
+    let pieceTotal = 0
+    state.scoringPieces.forEach(x => {
+        let jewel = getJewelInModelBy('id', x)
+        if(jewel.color == 7) {
+            pieceTotal += 10
+        } else if(jewel.color == 8) {
+            pieceTotal += 100
+        } else {
+            pieceTotal++
+        }
+    })
+    let x = pieceTotal * state.score.multiplier
     state.score.val += x
     score.innerHTML = formatCommas(state.score.val)
     if(state.score.val > state.highscore) {
