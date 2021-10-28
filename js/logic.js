@@ -132,6 +132,7 @@ function scoreWinners() {
 }
 
 function runFullScore(dir) {
+    state.time = 100
     state.gameLocked = true
     scoreWinners()
     createNextModel()
@@ -226,14 +227,18 @@ function check3InARow(jewel, dir) {
     })
 }
 
-function startTimer() {
-    console.log(state.time)
-    const timer = setInterval(() => {
-        state.time -= 10
-        animateTimer()
-        if(state.time <= 0) { stopTimer() }
-    }, settings.timerClock)
-    function stopTimer() {
-        clearInterval(timer)
-    }
+const gameTimer = {
+    start: setInterval(() => {
+        if(!state.menuOpen && !state.gameLocked) {
+            state.time -= settings.timerClock.distance
+            animateTimer()
+            if(state.time <= 0) {
+                // stopTimer()
+                // not sure how to start and stop a set interval even though we dont 
+                // need it to stop just for memory reasons
+                gameOver()
+            }
+        }
+    }, settings.timerClock.speed),
+    stop: () => { clearInterval(this.start) }
 }

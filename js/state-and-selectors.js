@@ -6,6 +6,8 @@ const gameSettings = document.getElementById('settings')
 const score = document.getElementById('score')
 const highscore = document.getElementById('highscore')
 const timer = document.getElementById('timer')
+const gameMsg = document.getElementById('game-message')
+
 
 gameSettings.addEventListener('click', handleSettingsClicked)
 startButton.addEventListener('click', handleStartClicked)
@@ -50,6 +52,17 @@ function handleStartClicked() {
     gameSettings.style.display = 'flex'
     startButton.style.display = 'none'
     launch()
+}
+
+function gameOver() {
+    state.menuOpen = true
+    menu.style.display = 'flex'
+    startButton.style.display = 'inline-block'
+    gameSettings.style.display = 'none'
+    startButton.innerHTML = 'Play again'
+    gameMsg.innerHTML = 'Game Over'
+    state.time = 100
+    state.score.val = 0
 }
 
 function handleSettingsClicked() {

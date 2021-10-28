@@ -5,8 +5,8 @@ function launch() {
     initModel()
     initDom()
     drawModel()
-    startTimer()
-    console.log('test')
+    // console.log('test')
+    // gameTimer.start
 }
 
 function initDom() {
@@ -119,7 +119,6 @@ function setupButtons() {
         } else {
             document.getElementById('mute').classList.add('fa-volume-up')
             document.getElementById('mute').classList.remove('fa-volume-mute')
-
         }
     })
 }

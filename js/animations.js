@@ -118,5 +118,10 @@ function handleAnimationEnded(event) {
 }
 
 function animateTimer() {
+    let color
+    if(state.time > 62) { color = 'green' }
+    if(state.time <= 62) { color = 'yellow' }
+    if(state.time <= 25) { color = 'red' }
+    timer.firstChild.style.background = color
     timer.firstChild.style.width = state.time + '%'
 }

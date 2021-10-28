@@ -3,6 +3,7 @@ body {
     background: rgb(255, 255, 255);
     background: #000000;
     font-family: helvetica;
+    margin: 0;
 }
 
 @-webkit-keyframes rotate {
@@ -62,13 +63,13 @@ a:hover {
 
 #timer {
     width: 480px;
-    height: 20px;
+    height: 15px;
     display: flex;
     justify-content: flex-start;
 }
 
 #timer div {
-    background: red;
+    background: green;
     width: 100%;
     height: 100%;
 }
@@ -123,6 +124,8 @@ a:hover {
     height: 29px;
     box-sizing: border-box;
     padding: 7px 0;
+    top: 11px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -134,8 +137,7 @@ a:hover {
     height: 2px;
     background: white;
 } .settings-container {
-    position: relative;
-    top: 17px;
+    height: 46px;
     width: 480px;
     margin: 0 auto;
     display: flex;

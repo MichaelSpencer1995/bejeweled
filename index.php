@@ -45,6 +45,7 @@ session_start();
                     <span>or </span>
                     <a href="login-signup.php">Sign up</a>
                     <p>to save highscore.</p>
+                    <p id="game-message"></p>
                 </div>
                 <p></p>
                 <button id="start" class="btn-primary">Start Game</button>

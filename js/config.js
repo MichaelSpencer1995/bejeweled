@@ -8,5 +8,8 @@ const settings = {
         speed: 7,
         distance: 5
     },
-    timerClock: 250
+    timerClock: {
+        speed: 100,
+        distance: 1
+    }
 }
