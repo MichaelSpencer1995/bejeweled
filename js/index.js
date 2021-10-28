@@ -5,6 +5,8 @@ function launch() {
     initModel()
     initDom()
     drawModel()
+    startTimer()
+    console.log('test')
 }
 
 function initDom() {

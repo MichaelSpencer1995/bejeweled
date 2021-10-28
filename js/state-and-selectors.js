@@ -5,6 +5,7 @@ const menu = document.querySelector('.menu-container')
 const gameSettings = document.getElementById('settings')
 const score = document.getElementById('score')
 const highscore = document.getElementById('highscore')
+const timer = document.getElementById('timer')
 
 gameSettings.addEventListener('click', handleSettingsClicked)
 startButton.addEventListener('click', handleStartClicked)
@@ -28,6 +29,7 @@ const state = {
     gameLocked: false,
     mute: false,
     menuOpen: true,
+    time: 100,
     highscore: localStorage.getItem('highscore') || 0,
     score: {
         val: 0,

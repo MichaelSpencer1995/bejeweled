@@ -56,6 +56,7 @@ session_start();
         <div id="game-board"></div>
     </div>
     <div class="lower-container">
+        <div id="timer"><div></div></div>
         <div class="scores">
             <div id="score">0</div>
             <div id="highscore">0</div>

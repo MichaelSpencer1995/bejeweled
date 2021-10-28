@@ -225,3 +225,16 @@ function check3InARow(jewel, dir) {
         jewel.potentialScorer = false
     })
 }
+
+function startTimer() {
+    console.log(state.time)
+    const timer = setInterval(() => {
+        state.time -= 10
+        animateTimer()
+        if(state.time <= 0) { stopTimer() }
+    }, 250)
+    function stopTimer() {
+        clearInterval(timer)
+    }
+
+}

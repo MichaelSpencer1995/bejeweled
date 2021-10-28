@@ -116,3 +116,7 @@ function handleAnimationEnded(event) {
         }
     }
 }
+
+function animateTimer() {
+    timer.firstChild.style.width = state.time + '%'
+}
