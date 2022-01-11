@@ -1,8 +1,8 @@
 const settings = {
     dev: true,
-    // showIds: true,
+    showIds: true,
     // maxPoints: true,
-    maxColors: 3,
+    maxColors: 4,
     // horAndVer: true,
     gravity: {
         speed: 7,

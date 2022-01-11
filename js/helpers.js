@@ -133,8 +133,8 @@ function randomJewel(except) {
             4: 0.14,
             5: 0.14,
             6: 0.14,
-            7: 0.01,
-            8: 0.0001
+            // 7: 0.01,
+            // 8: 0.0001
         })
     }
     return (num === except[0] || num === except[1]) ? randomJewel(except) : num

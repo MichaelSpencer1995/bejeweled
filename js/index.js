@@ -1,12 +1,9 @@
-// document.body.style.zoom = "80%"
-
+document.body.style.zoom = "130%"
 
 function launch() {
     initModel()
     initDom()
     drawModel()
-    // console.log('test')
-    // gameTimer.start
 }
 
 function initDom() {
@@ -38,6 +35,7 @@ function initDom() {
     }
     setUpJewelListeners()
     setupButtons()
+    setupSpaceclick()
     score.innerHTML = state.score.val
     highscore.innerHTML = formatCommas(state.highscore)
 }
@@ -119,6 +117,23 @@ function setupButtons() {
         } else {
             document.getElementById('mute').classList.add('fa-volume-up')
             document.getElementById('mute').classList.remove('fa-volume-mute')
+        }
+    })
+}
+
+function setupSpaceclick() {
+    window.onkeypress = function(event) {
+        if(event.which == 32) {
+            simClick()
+        }
+    }
+}
+
+function simClick() {
+    let jewels = document.querySelectorAll('.jewel-outer')
+    jewels.forEach(jewel => {
+        if(jewel.matches(':hover')) {
+            jewel.click()
         }
     })
 }
